@@ -1,5 +1,12 @@
 # Changelog
 
+# [0.3.0](https://github.com/Efcolipt/vue-slick-ts/compare/0.2.1...0.3.0) (2023-06-07)
+
+
+### Features
+
+* remove sourcemap from build ([3b600a1](https://github.com/Efcolipt/vue-slick-ts/commit/3b600a1707c478c86822715123f97386c1513ee8))
+
 ## [0.2.1](https://github.com/Efcolipt/vue-slick-ts/compare/0.2.0...0.2.1) (2023-06-07)
 
 # [0.2.0](https://github.com/Efcolipt/vue-slick-ts/compare/0.1.3...0.2.0) (2023-06-07)

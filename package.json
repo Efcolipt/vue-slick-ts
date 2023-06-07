@@ -1,19 +1,29 @@
 {
   "name": "vue-slick-ts",
   "version": "0.0.0",
-  "description": "Vue/Nuxt component for Slick-carousel with full Typescript (http://kenwheeler.github.io/slick)",
-  "main": "dist/vue-slick.umd.js",
-  "module": "dist/vue-slick.es.js",
-  "unpkg": "dist/vue-slick.umd.js",
-  "jsdelivr": "dist/vue-slick.umd.js",
-  "typings": "types/index.d.ts",
+  "description": "Vue/Nuxt component for slick-carousel with full Typescript",
+  "main": "./dist/vue-slick-ts.umd.js",
+  "module": "./dist/vue-slick-ts.es.js",
+  "unpkg": "./dist/vue-slick-ts.umd.js",
+  "jsdelivr": "./dist/vue-slick-ts.umd.js",
+  "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/vue-slick.es.js",
-      "require": "./dist/vue-slick.umd.js"
+      "import": {
+        "default": "./dist/vue-slick-ts.es.js"
+      },
+      "require": "./dist/vue-slick-ts.cjs.js",
+      "default": "./dist/vue-slick-ts.es.js"
     },
-    "./dist/style.css": "./dist/style.css"
+    "./types": "./dist/types/index.d.ts",
+    "./package.json": "./package.json",
+    "./dist/*": "./dist/*",
+    "./dist/style.css": "./dist/style.css",
+    "./dist/style-theme.css": "./dist/style-theme.css"
   },
+  "sideEffects": [
+    "*.css"
+  ],
   "engines": {
     "node": ">=16.19.0",
     "npm": ">=9.6.4"
@@ -21,7 +31,7 @@
   "scripts": {
     "dev": "vite",
     "lint:fix": "eslint --fix --ext .ts,vue ./",
-    "build": "vite build",
+    "build": "vite build && vue-tsc --project tsconfig.production.json",
     "prepublishOnly": "npm run build",
     "prepare": "husky install"
   },
@@ -91,7 +101,7 @@
     }
   },
   "lint-staged": {
-    "*.{ts,vue}": "eslint --fix"
+    "./src/**/*.{ts,vue}": "eslint --fix"
   },
   "commitlint": {
     "rules": {
@@ -103,6 +113,19 @@
     },
     "extends": [
       "@commitlint/config-conventional"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "last 2 versions",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
     ]
   }
 }

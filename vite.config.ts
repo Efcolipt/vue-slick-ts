@@ -34,11 +34,19 @@ export default defineConfig(() => {
         targets: [
           {
             src: "./node_modules/slick-carousel/slick/slick-theme.css",
-            dest: "",
+            dest: "./css",
           },
           {
             src: "./node_modules/slick-carousel/slick/slick.css",
-            dest: "",
+            dest: "./css",
+          },
+          {
+            src: "./node_modules/slick-carousel/slick/ajax-loader.gif",
+            dest: "./css",
+          },
+          {
+            src: "./node_modules/slick-carousel/slick/fonts",
+            dest: "./css",
           },
         ],
       }),

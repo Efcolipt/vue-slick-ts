@@ -23,12 +23,9 @@
     "./types": "./dist/types/index.d.ts",
     "./package.json": "./package.json",
     "./dist/*": "./dist/*",
-    "./dist/style.css": "./dist/style.css",
-    "./dist/style-theme.css": "./dist/style-theme.css"
+    "./dist/style.css": "./dist/css/style.css",
+    "./dist/style-theme.css": "./dist/css/style-theme.css"
   },
-  "sideEffects": [
-    "*.css"
-  ],
   "readmeFilename": "README.md",
   "engines": {
     "node": ">=16.19.0",

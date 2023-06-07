@@ -11,11 +11,10 @@ export default defineConfig(() => {
     build: {
       emptyOutDir: true,
       minify: true,
-      sourcemap: "inline",
       lib: {
         entry: resolve(__dirname, "./src/index.ts"),
         name: "vue-slick-ts",
-        fileName: "vue-slick-ts",
+        fileName: (format) => `vue-slick-ts.${format}.js`,
         formats: ["cjs", "es", "umd"],
       },
       outDir: "dist",
@@ -26,8 +25,6 @@ export default defineConfig(() => {
           globals: {
             vue: "Vue",
           },
-          entryFileNames: "vue-slick-ts.[format].js",
-          chunkFileNames: "[name].js",
         },
       },
     },

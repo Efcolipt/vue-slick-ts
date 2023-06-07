@@ -1,3 +1,5 @@
+/// <reference types="./slick.d.ts" />
+
 import { App } from "vue";
 import VueSlickCarousel from "../src/VueSlickCarousel.vue";
 export declare function install(app: App): void;

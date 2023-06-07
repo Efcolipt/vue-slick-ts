@@ -28,8 +28,7 @@
   },
   "readmeFilename": "README.md",
   "engines": {
-    "node": ">=16.19.0",
-    "npm": ">=9.6.4"
+    "node": ">=14.19.3"
   },
   "scripts": {
     "dev": "vite",

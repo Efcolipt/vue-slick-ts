@@ -1,0 +1,17 @@
+node_modules
+doc
+.DS_Store
+.github
+logs
+.vscode
+.editorconfig
+.eslintrc.json
+.eslintignore
+.prettierrc
+CHANGELOG.md
+index.html
+types
+scripts
+src
+stat.json
+CHANGELOG.md

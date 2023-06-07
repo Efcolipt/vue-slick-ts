@@ -1,5 +1,12 @@
 # Changelog
 
+# [0.2.0](https://github.com/Efcolipt/vue-slick-ts/compare/0.1.3...0.2.0) (2023-06-07)
+
+
+### Features
+
+* add css ([21ddf62](https://github.com/Efcolipt/vue-slick-ts/commit/21ddf6262f8ebdb34b7b86c6ff9c09c9cda8b420))
+
 ## [0.1.3](https://github.com/Efcolipt/vue-slick-ts/compare/0.1.2...0.1.3) (2023-06-07)
 
 ## [0.1.2](https://github.com/Efcolipt/vue-slick-ts/compare/0.1.1...0.1.2) (2023-06-07)

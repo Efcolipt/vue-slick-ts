@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/Efcolipt/vue-slick-ts/compare/0.1.0...0.1.1) (2023-06-07)
+
+
+### Bug Fixes
+
+* readme installing ([413273a](https://github.com/Efcolipt/vue-slick-ts/commit/413273a4c1ac25e933bef5bf03bf72cfe567c780))
+
 # 0.1.0 (2023-06-07)
 
 

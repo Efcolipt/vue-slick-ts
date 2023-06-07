@@ -3,7 +3,7 @@
 ## Installation
 
 ```sh
-npm install vue-slick
+npm install vue-slick-ts
 # or
-yarn add vue-slick
+yarn add vue-slick-ts
 ```

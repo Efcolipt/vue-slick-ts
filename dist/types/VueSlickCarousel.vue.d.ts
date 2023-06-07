@@ -1,3 +1,5 @@
+/// <reference types="jquery" />
+/// <reference types="jquery" />
 import 'slick-carousel/slick/slick.js';
 declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<__VLS_WithDefaults<__VLS_TypePropsToRuntimeProps<{
     options?: import("../types/slick.d.ts").DeepPartial<{

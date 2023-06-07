@@ -1,5 +1,6 @@
 import { resolve } from "path";
 import { defineConfig } from "vite";
+import { viteStaticCopy } from "vite-plugin-static-copy";
 import vue from "@vitejs/plugin-vue";
 
 export default defineConfig(() => {
@@ -27,7 +28,21 @@ export default defineConfig(() => {
         },
       },
     },
-    plugins: [vue()],
+    plugins: [
+      vue(),
+      viteStaticCopy({
+        targets: [
+          {
+            src: "./node_modules/slick-carousel/slick/slick-theme.css",
+            dest: "",
+          },
+          {
+            src: "./node_modules/slick-carousel/slick/slick.css",
+            dest: "",
+          },
+        ],
+      }),
+    ],
     resolve: {
       alias: {
         "@": resolve(__dirname, "src"),

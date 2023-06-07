@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/Efcolipt/vue-slick-ts/compare/0.3.0...0.3.1) (2023-06-07)
+
+
+### Performance Improvements
+
+* add legacy support slick ([9d0a244](https://github.com/Efcolipt/vue-slick-ts/commit/9d0a2446b1a6ff2e765baf41db0ec2113d63ccf2))
+
 # [0.3.0](https://github.com/Efcolipt/vue-slick-ts/compare/0.2.1...0.3.0) (2023-06-07)
 
 

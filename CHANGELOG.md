@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.2](https://github.com/Efcolipt/vue-slick-ts/compare/0.3.1...0.3.2) (2023-06-07)
+
+
+### Bug Fixes
+
+* import css slick ([a12e08c](https://github.com/Efcolipt/vue-slick-ts/commit/a12e08c88bb05b5d8045095b6d7557b68bb03db8))
+
 ## [0.3.1](https://github.com/Efcolipt/vue-slick-ts/compare/0.3.0...0.3.1) (2023-06-07)
 
 

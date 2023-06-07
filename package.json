@@ -32,7 +32,6 @@
     "dev": "vite",
     "lint:fix": "eslint --fix --ext .ts,vue ./",
     "build": "vite build && vue-tsc --project tsconfig.production.json",
-    "prepublishOnly": "npm run build",
     "prepare": "husky install"
   },
   "repository": {

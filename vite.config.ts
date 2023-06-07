@@ -5,6 +5,9 @@ import vue from "@vitejs/plugin-vue";
 
 export default defineConfig(() => {
   return {
+    optimizeDeps: {
+      include: ["slick-carousel", "jquery"],
+    },
     build: {
       emptyOutDir: true,
       minify: true,

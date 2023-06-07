@@ -4371,7 +4371,7 @@ const tr = {
     const C = J, x = (o) => {
       Object.keys(bt).forEach((c) => {
         o.on(bt[c], (...p) => {
-          R(bt[c], ...p);
+          R(bt[c], p);
         });
       });
     }, i = Bn("vue-slick__carousel");

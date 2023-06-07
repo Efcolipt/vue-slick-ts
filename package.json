@@ -15,7 +15,8 @@
     "./dist/style.css": "./dist/style.css"
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=16.19.0",
+    "npm": ">=9.6.4"
   },
   "scripts": {
     "dev": "vite",

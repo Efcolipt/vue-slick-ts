@@ -1,5 +1,13 @@
 # Changelog
 
+# [0.6.0](https://github.com/Efcolipt/vue-slick-ts/compare/0.5.0...0.6.0) (2023-06-08)
+
+
+### Features
+
+* add more types for slickInstance ([68eca60](https://github.com/Efcolipt/vue-slick-ts/commit/68eca6063f14ca88d4b993df75c8d72c0a7929e5))
+* add props prev/next arrow ([6920be7](https://github.com/Efcolipt/vue-slick-ts/commit/6920be72602c537f9ce4ee56d08ad268f870d4ac))
+
 # [0.5.0](https://github.com/Efcolipt/vue-slick-ts/compare/0.4.1...0.5.0) (2023-06-08)
 
 

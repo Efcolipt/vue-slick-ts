@@ -10,7 +10,21 @@
 This is package support only vue version >= 3.2 <br />
 For Legacy support u can find [here](https://www.npmjs.com/package/vue-slick)
 
+## Support
+
+Package support ESM, UMD, CJS
+
 ## Installation
+
+### Installation by CDN
+
+Just add script to your project to footer in your body tag <br/>
+
+```html
+<script src="https://unpkg.com/vue-slick-ts@latest"></script>
+```
+
+### Installation by Npm/Yarn
 
 Prerequisite
 

@@ -1,12 +1,8 @@
 {
   "name": "vue-slick-ts",
   "version": "0.4.1",
-  "description": "Vue/Nuxt component for slick-carousel with full Typescript",
-  "copyright": "Copyright © 2023-present Efcolipt",
   "main": "./dist/vue-slick-ts.umd.js",
   "module": "./dist/vue-slick-ts.es.js",
-  "unpkg": "./dist/vue-slick-ts.umd.js",
-  "jsdelivr": "./dist/vue-slick-ts.umd.js",
   "types": "./dist/types/index.d.ts",
   "files": [
     "dist",
@@ -31,13 +27,11 @@
   "engines": {
     "node": ">=14.19.3"
   },
-  "scripts": {
-    "dev": "vite",
-    "lint:fix": "eslint --fix --ext .ts,vue ./",
-    "build": "vite build && vue-tsc --project tsconfig.production.json",
-    "prepare": "node -e \"try { require('husky').install() } catch (e) {if (e.code !== 'MODULE_NOT_FOUND') throw e}\""
-  },
   "author": "Baykov Ivan <efcolipt@gmail.com> (https://github.com/Efcolipt/)",
+  "description": "Vue/Nuxt component for slick-carousel with full Typescript",
+  "copyright": "Copyright © 2023-present Efcolipt",
+  "license": "MIT",
+  "homepage": "https://github.com/Efcolipt/vue-slick-ts#readme",
   "repository": {
     "type": "git",
     "url": "https://github.com/Efcolipt/vue-slick-ts.git"
@@ -51,11 +45,15 @@
     "vue-slick",
     "vue3-slick"
   ],
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Efcolipt/vue-slick-ts/issues"
   },
-  "homepage": "https://github.com/Efcolipt/vue-slick-ts#readme",
+  "scripts": {
+    "dev": "vite",
+    "lint:fix": "eslint --fix --ext .ts,vue ./",
+    "build": "vite build && vue-tsc --project tsconfig.production.json",
+    "prepare": "node -e \"try { require('husky').install() } catch (e) {if (e.code !== 'MODULE_NOT_FOUND') throw e}\""
+  },
   "peerDependencies": {
     "vue": "^3.2"
   },

@@ -24,6 +24,24 @@ enum ListSlickEvents {
     SLICK_EVENTS_LAZY_LOAD_ERROR = "lazyLoadError",
 }
 
+
+// enum ListSlickMethods {
+//   SLICK_METHODS_CURRENT_SLIDE = "slickSlickCurrentSlide",
+//   SLICK_METHODS_GO_TO = "slickGoTo",
+//   SLICK_METHODS_NEXT = "slickNext",
+//   SLICK_METHODS_PREV = "slickPrev",
+//   SLICK_METHODS_PAUSE = "slickPause",
+//   SLICK_METHODS_PLAY = "slickPlay",
+//   SLICK_METHODS_ADD = "slickAdd",
+//   SLICK_METHODS_REMOVE = "slickRemove",
+//   SLICK_METHODS_FILTER = "slickFilter",
+//   SLICK_METHODS_UNFILTER = "slickUnfilter",
+//   SLICK_METHODS_GET_OPTION = "slickGetOption",
+//   SLICK_METHODS_SET_OPTION = "slickSetOption",
+//   SLICK_METHODS_UNSLICK = "unslick",
+//   SLICK_METHODS_GET_SLICK = "getSlick",
+// }
+
 type DeepPartial<T> = {
     [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
 };
@@ -164,85 +182,280 @@ interface SlickEvents {
     ): void;
 }
 
+interface SlickInstanceInitials {
+    /**
+     * When there is an animation running.
+     * Default: false
+     */
+    animating: boolean;
+
+    /**
+     * When they user is dragging a slide.
+     * Default: false
+     */
+    dragging: boolean;
+
+    /**
+     * Internal `setInterval` identifier.
+     * Default: null
+     */
+    autoPlayTimer: number | null;
+
+    /**
+     * The current direction (`0` for left and down, `1` for right and up).
+     * Default: 0
+     */
+    currentDirection: number;
+
+    /**
+     * Default: null
+     */
+    currentLeft: number | null;
+
+    /**
+     * The index of the current slide.
+     * Default: 0
+     */
+    currentSlide: number;
+
+    /**
+     * The direction (`0` for left and down, `1` for right and up).
+     * Default: null
+     */
+    direction: number;
+
+    /**
+     * jQuery instance that contains the "dots".
+     * Default: null
+     */
+    $dots: JQuery | null;
+
+    /**
+     * The list's width in pixels.
+     * Default: null
+     */
+    listWidth: number | null;
+
+    /**
+     * The list's height in pixels.
+     * Default: null
+     */
+    listHeight: number | null;
+
+    /**
+     * (actually it's not used in Slick, so I don't know what it is...)
+     * Default: 0
+     */
+    loadIndex: number;
+
+    /**
+     * jQuery instance that contains the "next arrow".
+     * Default: null
+     */
+    $nextArrow: JQuery | null;
+
+    /**
+     * jQuery instance that contains the "prev arrow".
+     * Default: null
+     */
+    $prevArrow: JQuery | null;
+
+    /**
+     * When they user is scrolling a slide.
+     * Default: false
+     */
+    scrolling: boolean;
+
+    /**
+     * The number of slides.
+     * Default: null
+     */
+    slideCount: number | null;
+
+    /**
+     * The slide's width in pixels.
+     * Default: null
+     */
+    slideWidth: number | null;
+
+    /**
+     * jQuery instance that contains the "slide track".
+     * Default: null
+     */
+    $slideTrack: JQuery | null;
+
+    /**
+     * jQuery instance that contains the "slides".
+     * Default: null
+     */
+    $slides: JQuery | null;
+
+    /**
+     * When the slider is sliding.
+     * Default: false
+     */
+    sliding: boolean;
+
+    /**
+     * Slide offset in pixels.
+     * Default: 0
+     */
+    slideOffset: number;
+
+    /**
+     * Default: null
+     */
+    swipeLeft: number | null;
+
+    /**
+     * Default: false
+     */
+    swiping: boolean;
+
+    /**
+     * jQuery instance that contains the "list".
+     * Default: null
+     */
+    $list: null;
+
+    /**
+     * Object that contains properties relative to "touch" behavior.
+     */
+    touchObject: {
+        startX?: number | undefined;
+        startY?: number | undefined;
+        curX?: number | undefined;
+        curY?: number | undefined;
+        swipeLength?: number | undefined;
+        edgeHit?: boolean | undefined;
+        minSwipe?: number | undefined;
+        fingerCount?: number | undefined;
+        verticalSwiping?: boolean | undefined;
+    };
+
+    /**
+     * Default: false
+     */
+    transformsEnabled: boolean;
+
+    /**
+     * Default: false
+     */
+    unslicked: boolean;
+}
+
 interface SlickInstance {
     on: SlickEvents;
     readonly options: SlickInstanceOptions;
+    readonly defaults: SlickInstanceOptions;
+    readonly originalSettings: SlickInstanceOptions;
+    readonly initials: SlickInstanceInitials;
+
+    /**
+     * Default: null
+     */
+    activeBreakpoint: number | null;
+
+    /**
+     * Default: null
+     */
+    animType: 'OTransform' | 'MozTransform' | 'webkitTransform' | 'msTransform' | 'transform' | false | null;
+
+    /**
+     * Default: null
+     */
+    animProp: null;
+
+    /**
+     * Default: []
+     */
+    breakpoints: number[];
+
+    /**
+     * Default: {}
+     */
+    breakpointSettings: { [breakpoint: number]: SlickInstanceOptions };
+
+    /**
+     * Default: false
+     */
+    cssTransitions: boolean;
+
+    /**
+     * Default: false
+     */
+    focussed: boolean;
+
+    /**
+     * Default: false
+     */
+    interrupted: boolean;
+
+    /**
+     * Default: 'hidden'
+     */
+    hidden: 'mozHidden' | 'webkitHidden' | 'hidden';
+
+    /**
+     * Default: true
+     */
+    paused: boolean;
+
+    /**
+     * Default: null
+     */
+    positionProp: 'top' | 'left' | null;
+
+    /**
+     * Default: null
+     */
+    respondTo: 'window' | 'slider' | 'min' | null;
+
+    /**
+     * Default: 1
+     */
+    rowCount: number;
+
+    /**
+     * Default: true
+     */
+    shouldClick: boolean;
+
+    /**
+     * Default: $(element)
+     */
+    $slider: JQuery;
+
+    /**
+     * Default: null
+     */
+    $slidesCache: JQuery | null;
+
+    /**
+     * Default: null
+     */
+    transformType: '-o-transform' | '-moz-transform' | '-webkit-transform' | '-ms-transform' | 'transition' | null;
+
+    /**
+     * Default: null
+     */
+    transitionType: 'OTransition' | 'MozTransition' | 'webkitTransition' | 'msTransition' | 'transition' | null;
+
+    /**
+     * Default: 'visibilitychange'
+     */
+    visibilityChange: 'visibilitychange' | 'mozvisibilitychange' | 'webkitvisibilitychange';
+
+    /**
+     * Default: 0
+     */
+    windowWidth: number;
+
+    /**
+     * Default: null
+     */
+    windowTimer: number | null;
 }
-
-// export enum ListSlickMethods {
-//   SLICK_METHODS_CURRENT_SLIDE = "slickSlickCurrentSlide",
-//   SLICK_METHODS_GO_TO = "slickGoTo",
-//   SLICK_METHODS_NEXT = "slickNext",
-//   SLICK_METHODS_PREV = "slickPrev",
-//   SLICK_METHODS_PAUSE = "slickPause",
-//   SLICK_METHODS_PLAY = "slickPlay",
-//   SLICK_METHODS_ADD = "slickAdd",
-//   SLICK_METHODS_REMOVE = "slickRemove",
-//   SLICK_METHODS_FILTER = "slickFilter",
-//   SLICK_METHODS_UNFILTER = "slickUnfilter",
-//   SLICK_METHODS_GET_OPTION = "slickGetOption",
-//   SLICK_METHODS_SET_OPTION = "slickSetOption",
-//   SLICK_METHODS_UNSLICK = "unslick",
-//   SLICK_METHODS_GET_SLICK = "getSlick",
-// }
-
-// export type SlickBaseMethod<T, R = []> = [event: T, ...rest: R];
-
-// export interface SlickMethods {
-//   (
-//     ...base: SlickBaseMethod<ListSlickMethods.SLICK_METHODS_CURRENT_SLIDE>
-//   ): number;
-//   (...base: SlickBaseMethod<ListSlickMethods.SLICK_METHODS_NEXT>): void;
-//   (...base: SlickBaseMethod<ListSlickMethods.SLICK_METHODS_PREV>): void;
-//   (...base: SlickBaseMethod<ListSlickMethods.SLICK_METHODS_PAUSE>): void;
-//   (...base: SlickBaseMethod<ListSlickMethods.SLICK_METHODS_PLAY>): void;
-//   (
-//     ...base: SlickBaseMethod<ListSlickMethods.SLICK_METHODS_GET_SLICK>
-//   ): SlickInstance;
-//   (...base: SlickBaseMethod<ListSlickMethods.SLICK_METHODS_UNSLICK>): void;
-//   (
-//     ...base: SlickBaseMethod<
-//       ListSlickMethods.SLICK_METHODS_GO_TO,
-//       [slideNumber: number, dotAnimate: boolean]
-//     >
-//   ): void;
-//   (
-//     ...base: SlickBaseMethod<
-//       ListSlickMethods.SLICK_METHODS_ADD,
-//       [html: JQuery.Selector, index: number | boolean, addBefore: boolean]
-//     >
-//   ): void;
-//   (
-//     ...base: SlickBaseMethod<
-//       ListSlickMethods.SLICK_METHODS_REMOVE,
-//       [index: number | boolean, removeBefore: boolean, removeAll: boolean]
-//     >
-//   ): void;
-//   (
-//     ...base: SlickBaseMethod<
-//       ListSlickMethods.SLICK_METHODS_FILTER,
-//       [filter: JQuery.Selector]
-//     >
-//   ): void;
-//   (
-//     ...base: SlickBaseMethod<
-//       ListSlickMethods.SLICK_METHODS_UNFILTER,
-//       [index: number]
-//     >
-//   ): void;
-//   (
-//     ...base: SlickBaseMethod<
-//       ListSlickMethods.SLICK_METHODS_GET_OPTION,
-//       [option: string]
-//     >
-//   ): void;
-//   (
-//     ...base: SlickBaseMethod<
-//       ListSlickMethods.SLICK_METHODS_SET_OPTION,
-//       [option: string, value: string, refresh: boolean]
-//     >
-//   ): void;
-// }
 
 const props = defineProps(carouselProps);
 const emits = defineEmits<SlickEvents>();

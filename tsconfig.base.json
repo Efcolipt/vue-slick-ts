@@ -15,7 +15,8 @@
     "importHelpers": true,
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
-    "lib": ["esnext", "dom", "dom.iterable"]
+    "lib": ["esnext", "dom", "dom.iterable"],
+    "types": ["vite/client", "jquery"]
   },
   "references": [{ "path": "./tsconfig.node.json" }]
 }

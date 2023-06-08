@@ -44,7 +44,11 @@
     "nuxt-slick",
     "slick-ts",
     "vue-slick",
-    "vue3-slick"
+    "vue3-slick",
+    "vue-slider",
+    "slider",
+    "nuxt-slider",
+    "vue-plugin-carousel"
   ],
   "bugs": {
     "url": "https://github.com/Efcolipt/vue-slick-ts/issues"

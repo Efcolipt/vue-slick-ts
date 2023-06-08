@@ -143,9 +143,256 @@ interface SlickEvents {
     ) => SlickInstance
   ): void;
 }
+interface SlickInstanceInitials {
+  /**
+   * When there is an animation running.
+   * Default: false
+   */
+  animating: boolean;
+  /**
+   * When they user is dragging a slide.
+   * Default: false
+   */
+  dragging: boolean;
+  /**
+   * Internal `setInterval` identifier.
+   * Default: null
+   */
+  autoPlayTimer: number | null;
+  /**
+   * The current direction (`0` for left and down, `1` for right and up).
+   * Default: 0
+   */
+  currentDirection: number;
+  /**
+   * Default: null
+   */
+  currentLeft: number | null;
+  /**
+   * The index of the current slide.
+   * Default: 0
+   */
+  currentSlide: number;
+  /**
+   * The direction (`0` for left and down, `1` for right and up).
+   * Default: null
+   */
+  direction: number;
+  /**
+   * jQuery instance that contains the "dots".
+   * Default: null
+   */
+  $dots: JQuery | null;
+  /**
+   * The list's width in pixels.
+   * Default: null
+   */
+  listWidth: number | null;
+  /**
+   * The list's height in pixels.
+   * Default: null
+   */
+  listHeight: number | null;
+  /**
+   * (actually it's not used in Slick, so I don't know what it is...)
+   * Default: 0
+   */
+  loadIndex: number;
+  /**
+   * jQuery instance that contains the "next arrow".
+   * Default: null
+   */
+  $nextArrow: JQuery | null;
+  /**
+   * jQuery instance that contains the "prev arrow".
+   * Default: null
+   */
+  $prevArrow: JQuery | null;
+  /**
+   * When they user is scrolling a slide.
+   * Default: false
+   */
+  scrolling: boolean;
+  /**
+   * The number of slides.
+   * Default: null
+   */
+  slideCount: number | null;
+  /**
+   * The slide's width in pixels.
+   * Default: null
+   */
+  slideWidth: number | null;
+  /**
+   * jQuery instance that contains the "slide track".
+   * Default: null
+   */
+  $slideTrack: JQuery | null;
+  /**
+   * jQuery instance that contains the "slides".
+   * Default: null
+   */
+  $slides: JQuery | null;
+  /**
+   * When the slider is sliding.
+   * Default: false
+   */
+  sliding: boolean;
+  /**
+   * Slide offset in pixels.
+   * Default: 0
+   */
+  slideOffset: number;
+  /**
+   * Default: null
+   */
+  swipeLeft: number | null;
+  /**
+   * Default: false
+   */
+  swiping: boolean;
+  /**
+   * jQuery instance that contains the "list".
+   * Default: null
+   */
+  $list: null;
+  /**
+   * Object that contains properties relative to "touch" behavior.
+   */
+  touchObject: {
+    startX?: number | undefined;
+    startY?: number | undefined;
+    curX?: number | undefined;
+    curY?: number | undefined;
+    swipeLength?: number | undefined;
+    edgeHit?: boolean | undefined;
+    minSwipe?: number | undefined;
+    fingerCount?: number | undefined;
+    verticalSwiping?: boolean | undefined;
+  };
+  /**
+   * Default: false
+   */
+  transformsEnabled: boolean;
+  /**
+   * Default: false
+   */
+  unslicked: boolean;
+}
 interface SlickInstance {
   on: SlickEvents;
   readonly options: SlickInstanceOptions;
+  readonly defaults: SlickInstanceOptions;
+  readonly originalSettings: SlickInstanceOptions;
+  readonly initials: SlickInstanceInitials;
+  /**
+   * Default: null
+   */
+  activeBreakpoint: number | null;
+  /**
+   * Default: null
+   */
+  animType:
+    | "OTransform"
+    | "MozTransform"
+    | "webkitTransform"
+    | "msTransform"
+    | "transform"
+    | false
+    | null;
+  /**
+   * Default: null
+   */
+  animProp: null;
+  /**
+   * Default: []
+   */
+  breakpoints: number[];
+  /**
+   * Default: {}
+   */
+  breakpointSettings: {
+    [breakpoint: number]: SlickInstanceOptions;
+  };
+  /**
+   * Default: false
+   */
+  cssTransitions: boolean;
+  /**
+   * Default: false
+   */
+  focussed: boolean;
+  /**
+   * Default: false
+   */
+  interrupted: boolean;
+  /**
+   * Default: 'hidden'
+   */
+  hidden: "mozHidden" | "webkitHidden" | "hidden";
+  /**
+   * Default: true
+   */
+  paused: boolean;
+  /**
+   * Default: null
+   */
+  positionProp: "top" | "left" | null;
+  /**
+   * Default: null
+   */
+  respondTo: "window" | "slider" | "min" | null;
+  /**
+   * Default: 1
+   */
+  rowCount: number;
+  /**
+   * Default: true
+   */
+  shouldClick: boolean;
+  /**
+   * Default: $(element)
+   */
+  $slider: JQuery;
+  /**
+   * Default: null
+   */
+  $slidesCache: JQuery | null;
+  /**
+   * Default: null
+   */
+  transformType:
+    | "-o-transform"
+    | "-moz-transform"
+    | "-webkit-transform"
+    | "-ms-transform"
+    | "transition"
+    | null;
+  /**
+   * Default: null
+   */
+  transitionType:
+    | "OTransition"
+    | "MozTransition"
+    | "webkitTransition"
+    | "msTransition"
+    | "transition"
+    | null;
+  /**
+   * Default: 'visibilitychange'
+   */
+  visibilityChange:
+    | "visibilitychange"
+    | "mozvisibilitychange"
+    | "webkitvisibilitychange";
+  /**
+   * Default: 0
+   */
+  windowWidth: number;
+  /**
+   * Default: null
+   */
+  windowTimer: number | null;
 }
 declare const _default: __VLS_WithTemplateSlots<
   import("vue").DefineComponent<
@@ -171,8 +418,22 @@ declare const _default: __VLS_WithTemplateSlots<
         readonly default: true;
       };
       readonly asNavFor: {
-        readonly type: import("vue").PropType<string | null>;
+        readonly type: import("vue").PropType<
+          string | Element | JQuery<HTMLElement>
+        >;
         readonly default: null;
+      };
+      readonly prevArrow: {
+        readonly type: import("vue").PropType<
+          string | Element | JQuery<HTMLElement>
+        >;
+        readonly default: '<button type="button" class="slick-prev">Previous</button>';
+      };
+      readonly nextArrow: {
+        readonly type: import("vue").PropType<
+          string | Element | JQuery<HTMLElement>
+        >;
+        readonly default: '<button type="button" class="slick-next">Next</button>';
       };
       readonly centerMode: {
         readonly type: import("vue").PropType<boolean>;
@@ -188,7 +449,9 @@ declare const _default: __VLS_WithTemplateSlots<
         readonly default: "ease";
       };
       readonly customPaging: {
-        readonly type: import("vue").PropType<() => void>;
+        readonly type: import("vue").PropType<
+          (slider: any, i: number) => string
+        >;
         readonly default: () => undefined;
       };
       readonly dots: {
@@ -275,9 +538,17 @@ declare const _default: __VLS_WithTemplateSlots<
       };
       readonly slidesToScroll: {
         readonly type: import("vue").PropType<number>;
+        /**
+         * The number of slides.
+         * Default: null
+         */
         readonly default: 1;
       };
       readonly speed: {
+        /**
+         * The slide's width in pixels.
+         * Default: null
+         */
         readonly type: import("vue").PropType<number>;
         readonly default: 300;
       };
@@ -291,7 +562,10 @@ declare const _default: __VLS_WithTemplateSlots<
       };
       readonly touchMove: {
         readonly type: import("vue").PropType<boolean>;
-        readonly default: true;
+        readonly default: true
+        /**
+         * Default: null
+         */;
       };
       readonly touchThreshold: {
         readonly type: import("vue").PropType<number>;
@@ -318,6 +592,9 @@ declare const _default: __VLS_WithTemplateSlots<
         readonly default: false;
       };
       readonly rtl: {
+        /**
+         * Default: null
+         */
         readonly type: import("vue").PropType<boolean>;
         readonly default: false;
       };
@@ -416,8 +693,22 @@ declare const _default: __VLS_WithTemplateSlots<
           readonly default: true;
         };
         readonly asNavFor: {
-          readonly type: import("vue").PropType<string | null>;
+          readonly type: import("vue").PropType<
+            string | Element | JQuery<HTMLElement>
+          >;
           readonly default: null;
+        };
+        readonly prevArrow: {
+          readonly type: import("vue").PropType<
+            string | Element | JQuery<HTMLElement>
+          >;
+          readonly default: '<button type="button" class="slick-prev">Previous</button>';
+        };
+        readonly nextArrow: {
+          readonly type: import("vue").PropType<
+            string | Element | JQuery<HTMLElement>
+          >;
+          readonly default: '<button type="button" class="slick-next">Next</button>';
         };
         readonly centerMode: {
           readonly type: import("vue").PropType<boolean>;
@@ -433,7 +724,9 @@ declare const _default: __VLS_WithTemplateSlots<
           readonly default: "ease";
         };
         readonly customPaging: {
-          readonly type: import("vue").PropType<() => void>;
+          readonly type: import("vue").PropType<
+            (slider: any, i: number) => string
+          >;
           readonly default: () => undefined;
         };
         readonly dots: {
@@ -520,9 +813,17 @@ declare const _default: __VLS_WithTemplateSlots<
         };
         readonly slidesToScroll: {
           readonly type: import("vue").PropType<number>;
+          /**
+           * The number of slides.
+           * Default: null
+           */
           readonly default: 1;
         };
         readonly speed: {
+          /**
+           * The slide's width in pixels.
+           * Default: null
+           */
           readonly type: import("vue").PropType<number>;
           readonly default: 300;
         };
@@ -536,7 +837,10 @@ declare const _default: __VLS_WithTemplateSlots<
         };
         readonly touchMove: {
           readonly type: import("vue").PropType<boolean>;
-          readonly default: true;
+          readonly default: true
+          /**
+           * Default: null
+           */;
         };
         readonly touchThreshold: {
           readonly type: import("vue").PropType<number>;
@@ -563,6 +867,9 @@ declare const _default: __VLS_WithTemplateSlots<
           readonly default: false;
         };
         readonly rtl: {
+          /**
+           * Default: null
+           */
           readonly type: import("vue").PropType<boolean>;
           readonly default: false;
         };
@@ -658,11 +965,13 @@ declare const _default: __VLS_WithTemplateSlots<
       readonly autoplay: boolean;
       readonly autoplaySpeed: number;
       readonly arrows: boolean;
-      readonly asNavFor: string | null;
+      readonly asNavFor: string | Element | JQuery<HTMLElement>;
+      readonly prevArrow: string | Element | JQuery<HTMLElement>;
+      readonly nextArrow: string | Element | JQuery<HTMLElement>;
       readonly centerMode: boolean;
       readonly centerPadding: string;
       readonly cssEase: string;
-      readonly customPaging: () => void;
+      readonly customPaging: (slider: any, i: number) => string;
       readonly dots: boolean;
       readonly dotsClass: string;
       readonly draggable: boolean;

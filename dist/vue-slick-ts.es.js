@@ -14,9 +14,9 @@ var Ft = { exports: {} };
  *
  * Date: 2023-05-11T18:29Z
  */
-var ji;
+var Hi;
 function Pi() {
-  return ji || (ji = 1, function(K) {
+  return Hi || (Hi = 1, function(K) {
     (function(W, $) {
       K.exports = W.document ? $(W, !0) : function(C) {
         if (!C.document)
@@ -28,7 +28,7 @@ function Pi() {
         return C.flat.call(e);
       } : function(e) {
         return C.concat.apply([], e);
-      }, d = C.push, g = C.indexOf, p = {}, j = p.toString, D = p.hasOwnProperty, re = D.toString, H = re.call(Object), M = {}, _ = function(t) {
+      }, d = C.push, g = C.indexOf, p = {}, H = p.toString, D = p.hasOwnProperty, re = D.toString, j = re.call(Object), M = {}, _ = function(t) {
         return typeof t == "function" && typeof t.nodeType != "number" && typeof t.item != "function";
       }, xe = function(t) {
         return t != null && t === t.window;
@@ -47,7 +47,7 @@ function Pi() {
         n.head.appendChild(a).parentNode.removeChild(a);
       }
       function qe(e) {
-        return e == null ? e + "" : typeof e == "object" || typeof e == "function" ? p[j.call(e)] || "object" : typeof e;
+        return e == null ? e + "" : typeof e == "object" || typeof e == "function" ? p[H.call(e)] || "object" : typeof e;
       }
       var Xt = "3.7.0", Li = /HTML$/i, o = function(e, t) {
         return new o.fn.init(e, t);
@@ -131,7 +131,7 @@ function Pi() {
         },
         isPlainObject: function(e) {
           var t, n;
-          return !e || j.call(e) !== "[object Object]" ? !1 : (t = i(e), t ? (n = D.call(t, "constructor") && t.constructor, typeof n == "function" && re.call(n) === H) : !0);
+          return !e || H.call(e) !== "[object Object]" ? !1 : (t = i(e), t ? (n = D.call(t, "constructor") && t.constructor, typeof n == "function" && re.call(n) === j) : !0);
         },
         isEmptyObject: function(e) {
           var t;
@@ -332,7 +332,7 @@ function Pi() {
               }
             }
           }
-          return Hi(c.replace(Ge, "$1"), y, b, T);
+          return ji(c.replace(Ge, "$1"), y, b, T);
         }
         function pt() {
           var c = [];
@@ -876,7 +876,7 @@ function Pi() {
           }
           return E;
         }
-        function Hi(c, y, b, T) {
+        function ji(c, y, b, T) {
           var x, E, O, P, N, U = typeof c == "function" && c, I = !T && ht(c = U.selector || c);
           if (b = b || [], I.length === 1) {
             if (E = I[0] = I[0].slice(0), E.length > 2 && (O = E[0]).type === "ID" && y.nodeType === 9 && f && t.relative[E[1].type]) {
@@ -909,7 +909,7 @@ function Pi() {
         }
         M.sortStable = k.split("").sort(ie).join("") === k, Ne(), M.sortDetached = Xe(function(c) {
           return c.compareDocumentPosition(l.createElement("fieldset")) & 1;
-        }), o.find = J, o.expr[":"] = o.expr.pseudos, o.unique = o.uniqueSort, J.compile = Bt, J.select = Hi, J.setDocument = Ne, J.escape = o.escapeSelector, J.getText = o.text, J.isXML = o.isXMLDoc, J.selectors = o.expr, J.support = o.support, J.uniqueSort = o.uniqueSort;
+        }), o.find = J, o.expr[":"] = o.expr.pseudos, o.unique = o.uniqueSort, J.compile = Bt, J.select = ji, J.setDocument = Ne, J.escape = o.escapeSelector, J.getText = o.text, J.isXML = o.isXMLDoc, J.selectors = o.expr, J.support = o.support, J.uniqueSort = o.uniqueSort;
       })();
       var Ie = function(e, t, n) {
         for (var r = [], s = n !== void 0; (e = e[t]) && e.nodeType !== 9; )
@@ -1563,10 +1563,10 @@ function Pi() {
           return h(), s.promise(t);
         }
       });
-      var ei = /[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source, Je = new RegExp("^(?:([+-])=|)(" + ei + ")([a-z%]*)$", "i"), $e = ["Top", "Right", "Bottom", "Left"], He = z.documentElement, ze = function(e) {
+      var ei = /[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source, Je = new RegExp("^(?:([+-])=|)(" + ei + ")([a-z%]*)$", "i"), $e = ["Top", "Right", "Bottom", "Left"], je = z.documentElement, ze = function(e) {
         return o.contains(e.ownerDocument, e);
       }, Zi = { composed: !0 };
-      He.getRootNode && (ze = function(e) {
+      je.getRootNode && (ze = function(e) {
         return o.contains(e.ownerDocument, e) || e.getRootNode(Zi) === e.ownerDocument;
       });
       var lt = function(e, t) {
@@ -1696,7 +1696,7 @@ function Pi() {
         add: function(e, t, n, r, s) {
           var a, l, h, f, m, S, k, w, A, R, Y, F = L.get(e);
           if (Ke(e))
-            for (n.handler && (a = n, n = a.handler, s = a.selector), s && o.find.matchesSelector(He, s), n.guid || (n.guid = o.guid++), (f = F.events) || (f = F.events = /* @__PURE__ */ Object.create(null)), (l = F.handle) || (l = F.handle = function(ne) {
+            for (n.handler && (a = n, n = a.handler, s = a.selector), s && o.find.matchesSelector(je, s), n.guid || (n.guid = o.guid++), (f = F.events) || (f = F.events = /* @__PURE__ */ Object.create(null)), (l = F.handle) || (l = F.handle = function(ne) {
               return typeof o < "u" && o.event.triggered !== ne.type ? o.event.dispatch.apply(e, arguments) : void 0;
             }), t = (t || "").match(ye) || [""], m = t.length; m--; )
               h = si.exec(t[m]) || [], A = Y = h[1], R = (h[2] || "").split(".").sort(), A && (k = o.event.special[A] || {}, A = (s ? k.delegateType : k.bindType) || A, k = o.event.special[A] || {}, S = o.extend({
@@ -2157,9 +2157,9 @@ function Pi() {
       (function() {
         function e() {
           if (m) {
-            f.style.cssText = "position:absolute;left:-11111px;width:60px;margin-top:1px;padding:0;border:0", m.style.cssText = "position:relative;display:block;box-sizing:border-box;overflow:scroll;margin:auto;border:1px;padding:1px;width:60%;top:1%", He.appendChild(f).appendChild(m);
+            f.style.cssText = "position:absolute;left:-11111px;width:60px;margin-top:1px;padding:0;border:0", m.style.cssText = "position:relative;display:block;box-sizing:border-box;overflow:scroll;margin:auto;border:1px;padding:1px;width:60%;top:1%", je.appendChild(f).appendChild(m);
             var S = W.getComputedStyle(m);
-            n = S.top !== "1%", h = t(S.marginLeft) === 12, m.style.right = "60%", a = t(S.right) === 36, r = t(S.width) === 36, m.style.position = "absolute", s = t(m.offsetWidth / 3) === 12, He.removeChild(f), m = null;
+            n = S.top !== "1%", h = t(S.marginLeft) === 12, m.style.right = "60%", a = t(S.right) === 36, r = t(S.width) === 36, m.style.position = "absolute", s = t(m.offsetWidth / 3) === 12, je.removeChild(f), m = null;
           }
         }
         function t(S) {
@@ -2193,7 +2193,7 @@ function Pi() {
           // in computed dimensions. (gh-4529)
           reliableTrDimensions: function() {
             var S, k, w, A;
-            return l == null && (S = z.createElement("table"), k = z.createElement("tr"), w = z.createElement("div"), S.style.cssText = "position:absolute;left:-11111px;border-collapse:separate", k.style.cssText = "border:1px solid", k.style.height = "1px", w.style.height = "9px", w.style.display = "block", He.appendChild(S).appendChild(k).appendChild(w), A = W.getComputedStyle(k), l = parseInt(A.height, 10) + parseInt(A.borderTopWidth, 10) + parseInt(A.borderBottomWidth, 10) === k.offsetHeight, He.removeChild(S)), l;
+            return l == null && (S = z.createElement("table"), k = z.createElement("tr"), w = z.createElement("div"), S.style.cssText = "position:absolute;left:-11111px;border-collapse:separate", k.style.cssText = "border:1px solid", k.style.height = "1px", w.style.height = "9px", w.style.display = "block", je.appendChild(S).appendChild(k).appendChild(w), A = W.getComputedStyle(k), l = parseInt(A.height, 10) + parseInt(A.borderTopWidth, 10) + parseInt(A.borderBottomWidth, 10) === k.offsetHeight, je.removeChild(S)), l;
           }
         }));
       })();
@@ -2766,7 +2766,7 @@ function Pi() {
       ], function() {
         o.propFix[this.toLowerCase()] = this;
       });
-      function je(e) {
+      function He(e) {
         var t = e.match(ye) || [];
         return t.join(" ");
       }
@@ -2782,10 +2782,10 @@ function Pi() {
           return _(e) ? this.each(function(h) {
             o(this).addClass(e.call(this, h, Pe(this)));
           }) : (t = Ot(e), t.length ? this.each(function() {
-            if (r = Pe(this), n = this.nodeType === 1 && " " + je(r) + " ", n) {
+            if (r = Pe(this), n = this.nodeType === 1 && " " + He(r) + " ", n) {
               for (a = 0; a < t.length; a++)
                 s = t[a], n.indexOf(" " + s + " ") < 0 && (n += s + " ");
-              l = je(n), r !== l && this.setAttribute("class", l);
+              l = He(n), r !== l && this.setAttribute("class", l);
             }
           }) : this);
         },
@@ -2794,11 +2794,11 @@ function Pi() {
           return _(e) ? this.each(function(h) {
             o(this).removeClass(e.call(this, h, Pe(this)));
           }) : arguments.length ? (t = Ot(e), t.length ? this.each(function() {
-            if (r = Pe(this), n = this.nodeType === 1 && " " + je(r) + " ", n) {
+            if (r = Pe(this), n = this.nodeType === 1 && " " + He(r) + " ", n) {
               for (a = 0; a < t.length; a++)
                 for (s = t[a]; n.indexOf(" " + s + " ") > -1; )
                   n = n.replace(" " + s + " ", " ");
-              l = je(n), r !== l && this.setAttribute("class", l);
+              l = He(n), r !== l && this.setAttribute("class", l);
             }
           }) : this) : this.attr("class", "");
         },
@@ -2823,7 +2823,7 @@ function Pi() {
         hasClass: function(e) {
           var t, n, r = 0;
           for (t = " " + e + " "; n = this[r++]; )
-            if (n.nodeType === 1 && (" " + je(Pe(n)) + " ").indexOf(t) > -1)
+            if (n.nodeType === 1 && (" " + He(Pe(n)) + " ").indexOf(t) > -1)
               return !0;
           return !1;
         }
@@ -2848,7 +2848,7 @@ function Pi() {
               // option.text throws exceptions (trac-14686, trac-14858)
               // Strip and collapse whitespace
               // https://html.spec.whatwg.org/#strip-and-collapse-whitespace
-              je(o.text(e));
+              He(o.text(e));
             }
           },
           select: {
@@ -2937,11 +2937,11 @@ function Pi() {
         }
       });
       var wn = /\[\]$/, ki = /\r?\n/g, Tn = /^(?:submit|button|image|reset|file)$/i, Sn = /^(?:input|select|textarea|keygen)/i;
-      function Ht(e, t, n, r) {
+      function jt(e, t, n, r) {
         var s;
         if (Array.isArray(t))
           o.each(t, function(a, l) {
-            n || wn.test(e) ? r(e, l) : Ht(
+            n || wn.test(e) ? r(e, l) : jt(
               e + "[" + (typeof l == "object" && l != null ? a : "") + "]",
               l,
               n,
@@ -2950,7 +2950,7 @@ function Pi() {
           });
         else if (!n && qe(t) === "object")
           for (s in t)
-            Ht(e + "[" + s + "]", t[s], n, r);
+            jt(e + "[" + s + "]", t[s], n, r);
         else
           r(e, t);
       }
@@ -2967,7 +2967,7 @@ function Pi() {
           });
         else
           for (n in e)
-            Ht(n, e[n], t, s);
+            jt(n, e[n], t, s);
         return r.join("&");
       }, o.fn.extend({
         serialize: function() {
@@ -2990,7 +2990,7 @@ function Pi() {
           }).get();
         }
       });
-      var xn = /%20/g, kn = /#.*$/, Cn = /([?&])_=[^&]*/, $n = /^(.*?):[ \t]*([^\r\n]*)$/mg, An = /^(?:about|app|app-storage|.+-extension|file|res|widget):$/, En = /^(?:GET|HEAD)$/, Dn = /^\/\//, Ci = {}, jt = {}, $i = "*/".concat("*"), Pt = z.createElement("a");
+      var xn = /%20/g, kn = /#.*$/, Cn = /([?&])_=[^&]*/, $n = /^(.*?):[ \t]*([^\r\n]*)$/mg, An = /^(?:about|app|app-storage|.+-extension|file|res|widget):$/, En = /^(?:GET|HEAD)$/, Dn = /^\/\//, Ci = {}, Ht = {}, $i = "*/".concat("*"), Pt = z.createElement("a");
       Pt.href = it.href;
       function Ai(e) {
         return function(t, n) {
@@ -3002,7 +3002,7 @@ function Pi() {
         };
       }
       function Ei(e, t, n, r) {
-        var s = {}, a = e === jt;
+        var s = {}, a = e === Ht;
         function l(h) {
           var f;
           return s[h] = !0, o.each(e[h] || [], function(m, S) {
@@ -3155,7 +3155,7 @@ function Pi() {
           );
         },
         ajaxPrefilter: Ai(Ci),
-        ajaxTransport: Ai(jt),
+        ajaxTransport: Ai(Ht),
         // Main method
         ajax: function(e, t) {
           typeof e == "object" && (t = e, e = void 0), t = t || {};
@@ -3219,7 +3219,7 @@ function Pi() {
             V.setRequestHeader(S, w.headers[S]);
           if (w.beforeSend && (w.beforeSend.call(A, V, w) === !1 || f))
             return V.abort();
-          if (be = "abort", F.add(w.complete), V.done(w.success), V.fail(w.error), n = Ei(jt, w, t, V), !n)
+          if (be = "abort", F.add(w.complete), V.done(w.success), V.fail(w.error), n = Ei(Ht, w, t, V), !n)
             Le(-1, "No Transport");
           else {
             if (V.readyState = 1, m && R.trigger("ajaxSend", [V, w]), f)
@@ -3323,7 +3323,7 @@ function Pi() {
         } catch {
         }
       };
-      var Hn = {
+      var jn = {
         // File protocol always yields status code 0, assume 200
         0: 200,
         // Support: IE <=9 only
@@ -3355,7 +3355,7 @@ function Pi() {
                     l.status,
                     l.statusText
                   ) : s(
-                    Hn[l.status] || l.status,
+                    jn[l.status] || l.status,
                     l.statusText,
                     // Support: IE <=9 only
                     // IE9 has no XHR2 but throws on binary (trac-11426)
@@ -3439,7 +3439,7 @@ function Pi() {
         return t || (M.createHTMLDocument ? (t = z.implementation.createHTMLDocument(""), r = t.createElement("base"), r.href = z.location.href, t.head.appendChild(r)) : t = z), s = Gt.exec(e), a = !n && [], s ? [t.createElement(s[1])] : (s = oi([e], t, a), a && a.length && o(a).remove(), o.merge([], s.childNodes));
       }, o.fn.load = function(e, t, n) {
         var r, s, a, l = this, h = e.indexOf(" ");
-        return h > -1 && (r = je(e.slice(h)), e = e.slice(0, h)), _(t) ? (n = t, t = void 0) : t && typeof t == "object" && (s = "POST"), l.length > 0 && o.ajax({
+        return h > -1 && (r = He(e.slice(h)), e = e.slice(0, h)), _(t) ? (n = t, t = void 0) : t && typeof t == "object" && (s = "POST"), l.length > 0 && o.ajax({
           url: e,
           // If "type" variable is undefined, then "GET" method will be used.
           // Make value of this field explicit since
@@ -3516,7 +3516,7 @@ function Pi() {
           return this.map(function() {
             for (var e = this.offsetParent; e && o.css(e, "position") === "static"; )
               e = e.offsetParent;
-            return e || He;
+            return e || je;
           });
         }
       }), o.each({ scrollLeft: "pageXOffset", scrollTop: "pageYOffset" }, function(e, t) {
@@ -3601,7 +3601,7 @@ function Pi() {
           };
         }
       );
-      var jn = /^[\s\uFEFF\xA0]+|([^\s\uFEFF\xA0])[\s\uFEFF\xA0]+$/g;
+      var Hn = /^[\s\uFEFF\xA0]+|([^\s\uFEFF\xA0])[\s\uFEFF\xA0]+$/g;
       o.proxy = function(e, t) {
         var n, r, s;
         if (typeof t == "string" && (n = e[t], t = e, e = n), !!_(e))
@@ -3617,7 +3617,7 @@ function Pi() {
         // subtraction forces infinities to NaN
         !isNaN(e - parseFloat(e));
       }, o.trim = function(e) {
-        return e == null ? "" : (e + "").replace(jn, "$1");
+        return e == null ? "" : (e + "").replace(Hn, "$1");
       };
       var Pn = W.jQuery, Ln = W.$;
       return o.noConflict = function(e) {
@@ -3638,8 +3638,8 @@ var Jn = { exports: {} };
       var i = 0;
       return function(u, v) {
         var d, g = this;
-        g.defaults = { accessibility: !0, adaptiveHeight: !1, appendArrows: $(u), appendDots: $(u), arrows: !0, asNavFor: null, prevArrow: '<button class="slick-prev" aria-label="Previous" type="button">Previous</button>', nextArrow: '<button class="slick-next" aria-label="Next" type="button">Next</button>', autoplay: !1, autoplaySpeed: 3e3, centerMode: !1, centerPadding: "50px", cssEase: "ease", customPaging: function(p, j) {
-          return $('<button type="button" />').text(j + 1);
+        g.defaults = { accessibility: !0, adaptiveHeight: !1, appendArrows: $(u), appendDots: $(u), arrows: !0, asNavFor: null, prevArrow: '<button class="slick-prev" aria-label="Previous" type="button">Previous</button>', nextArrow: '<button class="slick-next" aria-label="Next" type="button">Next</button>', autoplay: !1, autoplaySpeed: 3e3, centerMode: !1, centerPadding: "50px", cssEase: "ease", customPaging: function(p, H) {
+          return $('<button type="button" />').text(H + 1);
         }, dots: !1, dotsClass: "slick-dots", draggable: !0, easing: "linear", edgeFriction: 0.35, fade: !1, focusOnSelect: !1, focusOnChange: !1, infinite: !0, initialSlide: 0, lazyLoad: "ondemand", mobileFirst: !1, pauseOnHover: !0, pauseOnFocus: !0, pauseOnDotsHover: !1, respondTo: "window", responsive: null, rows: 1, rtl: !1, slide: "", slidesPerRow: 1, slidesToShow: 1, slidesToScroll: 1, speed: 500, swipe: !0, swipeToSlide: !1, touchMove: !0, touchThreshold: 5, useCSS: !0, useTransform: !0, variableWidth: !1, vertical: !1, verticalSwiping: !1, waitForAnimate: !0, zIndex: 1e3 }, g.initials = { animating: !1, dragging: !1, autoPlayTimer: null, currentDirection: 0, currentLeft: null, currentSlide: 0, direction: 1, $dots: null, listWidth: null, listHeight: null, loadIndex: 0, $nextArrow: null, $prevArrow: null, scrolling: !1, slideCount: null, slideWidth: null, $slideTrack: null, $slides: null, sliding: !1, slideOffset: 0, swipeLeft: null, swiping: !1, $list: null, touchObject: {}, transformsEnabled: !1, unslicked: !1 }, $.extend(g, g.initials), g.activeBreakpoint = null, g.animType = null, g.animProp = null, g.breakpoints = [], g.breakpointSettings = [], g.cssTransitions = !1, g.focussed = !1, g.interrupted = !1, g.hidden = "hidden", g.paused = !0, g.positionProp = null, g.respondTo = null, g.rowCount = 1, g.shouldClick = !0, g.$slider = $(u), g.$slidesCache = null, g.transformType = null, g.transitionType = null, g.visibilityChange = "visibilitychange", g.windowWidth = 0, g.windowTimer = null, d = $(u).data("slick") || {}, g.options = $.extend({}, g.defaults, v, d), g.currentSlide = g.options.initialSlide, g.originalSettings = g.options, document.mozHidden !== void 0 ? (g.hidden = "mozHidden", g.visibilityChange = "mozvisibilitychange") : document.webkitHidden !== void 0 && (g.hidden = "webkitHidden", g.visibilityChange = "webkitvisibilitychange"), g.autoPlay = $.proxy(g.autoPlay, g), g.autoPlayClear = $.proxy(g.autoPlayClear, g), g.autoPlayIterator = $.proxy(g.autoPlayIterator, g), g.changeSlide = $.proxy(g.changeSlide, g), g.clickHandler = $.proxy(g.clickHandler, g), g.selectHandler = $.proxy(g.selectHandler, g), g.setPosition = $.proxy(g.setPosition, g), g.swipeHandler = $.proxy(g.swipeHandler, g), g.dragHandler = $.proxy(g.dragHandler, g), g.keyHandler = $.proxy(g.keyHandler, g), g.instanceUid = i++, g.htmlExpr = /^(?:\s*(<[\w\W]+>)[^>]*)$/, g.registerBreakpoints(), g.init(!0);
       };
     }()).prototype.activateADA = function() {
@@ -3705,33 +3705,33 @@ var Jn = { exports: {} };
         $(v).attr("data-slick-index", u).data("originalStyling", $(v).attr("style") || "");
       }), i.$slider.addClass("slick-slider"), i.$slideTrack = i.slideCount === 0 ? $('<div class="slick-track"/>').appendTo(i.$slider) : i.$slides.wrapAll('<div class="slick-track"/>').parent(), i.$list = i.$slideTrack.wrap('<div class="slick-list"/>').parent(), i.$slideTrack.css("opacity", 0), i.options.centerMode !== !0 && i.options.swipeToSlide !== !0 || (i.options.slidesToScroll = 1), $("img[data-lazy]", i.$slider).not("[src]").addClass("slick-loading"), i.setupInfinite(), i.buildArrows(), i.buildDots(), i.updateDots(), i.setSlideClasses(typeof i.currentSlide == "number" ? i.currentSlide : 0), i.options.draggable === !0 && i.$list.addClass("draggable");
     }, C.prototype.buildRows = function() {
-      var i, u, v, d, g, p, j, D = this;
+      var i, u, v, d, g, p, H, D = this;
       if (d = document.createDocumentFragment(), p = D.$slider.children(), D.options.rows > 1) {
-        for (j = D.options.slidesPerRow * D.options.rows, g = Math.ceil(p.length / j), i = 0; i < g; i++) {
+        for (H = D.options.slidesPerRow * D.options.rows, g = Math.ceil(p.length / H), i = 0; i < g; i++) {
           var re = document.createElement("div");
           for (u = 0; u < D.options.rows; u++) {
-            var H = document.createElement("div");
+            var j = document.createElement("div");
             for (v = 0; v < D.options.slidesPerRow; v++) {
-              var M = i * j + (u * D.options.slidesPerRow + v);
-              p.get(M) && H.appendChild(p.get(M));
+              var M = i * H + (u * D.options.slidesPerRow + v);
+              p.get(M) && j.appendChild(p.get(M));
             }
-            re.appendChild(H);
+            re.appendChild(j);
           }
           d.appendChild(re);
         }
         D.$slider.empty().append(d), D.$slider.children().children().children().css({ width: 100 / D.options.slidesPerRow + "%", display: "inline-block" });
       }
     }, C.prototype.checkResponsive = function(i, u) {
-      var v, d, g, p = this, j = !1, D = p.$slider.width(), re = window.innerWidth || $(window).width();
+      var v, d, g, p = this, H = !1, D = p.$slider.width(), re = window.innerWidth || $(window).width();
       if (p.respondTo === "window" ? g = re : p.respondTo === "slider" ? g = D : p.respondTo === "min" && (g = Math.min(re, D)), p.options.responsive && p.options.responsive.length && p.options.responsive !== null) {
         d = null;
         for (v in p.breakpoints)
           p.breakpoints.hasOwnProperty(v) && (p.originalSettings.mobileFirst === !1 ? g < p.breakpoints[v] && (d = p.breakpoints[v]) : g > p.breakpoints[v] && (d = p.breakpoints[v]));
-        d !== null ? p.activeBreakpoint !== null ? (d !== p.activeBreakpoint || u) && (p.activeBreakpoint = d, p.breakpointSettings[d] === "unslick" ? p.unslick(d) : (p.options = $.extend({}, p.originalSettings, p.breakpointSettings[d]), i === !0 && (p.currentSlide = p.options.initialSlide), p.refresh(i)), j = d) : (p.activeBreakpoint = d, p.breakpointSettings[d] === "unslick" ? p.unslick(d) : (p.options = $.extend({}, p.originalSettings, p.breakpointSettings[d]), i === !0 && (p.currentSlide = p.options.initialSlide), p.refresh(i)), j = d) : p.activeBreakpoint !== null && (p.activeBreakpoint = null, p.options = p.originalSettings, i === !0 && (p.currentSlide = p.options.initialSlide), p.refresh(i), j = d), i || j === !1 || p.$slider.trigger("breakpoint", [p, j]);
+        d !== null ? p.activeBreakpoint !== null ? (d !== p.activeBreakpoint || u) && (p.activeBreakpoint = d, p.breakpointSettings[d] === "unslick" ? p.unslick(d) : (p.options = $.extend({}, p.originalSettings, p.breakpointSettings[d]), i === !0 && (p.currentSlide = p.options.initialSlide), p.refresh(i)), H = d) : (p.activeBreakpoint = d, p.breakpointSettings[d] === "unslick" ? p.unslick(d) : (p.options = $.extend({}, p.originalSettings, p.breakpointSettings[d]), i === !0 && (p.currentSlide = p.options.initialSlide), p.refresh(i)), H = d) : p.activeBreakpoint !== null && (p.activeBreakpoint = null, p.options = p.originalSettings, i === !0 && (p.currentSlide = p.options.initialSlide), p.refresh(i), H = d), i || H === !1 || p.$slider.trigger("breakpoint", [p, H]);
       }
     }, C.prototype.changeSlide = function(i, u) {
-      var v, d, g, p = this, j = $(i.currentTarget);
-      switch (j.is("a") && i.preventDefault(), j.is("li") || (j = j.closest("li")), g = p.slideCount % p.options.slidesToScroll != 0, v = g ? 0 : (p.slideCount - p.currentSlide) % p.options.slidesToScroll, i.data.message) {
+      var v, d, g, p = this, H = $(i.currentTarget);
+      switch (H.is("a") && i.preventDefault(), H.is("li") || (H = H.closest("li")), g = p.slideCount % p.options.slidesToScroll != 0, v = g ? 0 : (p.slideCount - p.currentSlide) % p.options.slidesToScroll, i.data.message) {
         case "previous":
           d = v === 0 ? p.options.slidesToScroll : p.options.slidesToShow - v, p.slideCount > p.options.slidesToShow && p.slideHandler(p.currentSlide - d, !1, u);
           break;
@@ -3739,8 +3739,8 @@ var Jn = { exports: {} };
           d = v === 0 ? p.options.slidesToScroll : v, p.slideCount > p.options.slidesToShow && p.slideHandler(p.currentSlide + d, !1, u);
           break;
         case "index":
-          var D = i.data.index === 0 ? 0 : i.data.index || j.index() * p.options.slidesToScroll;
-          p.slideHandler(p.checkNavigable(D), !1, u), j.children().trigger("focus");
+          var D = i.data.index === 0 ? 0 : i.data.index || H.index() * p.options.slidesToScroll;
+          p.slideHandler(p.checkNavigable(D), !1, u), H.children().trigger("focus");
           break;
         default:
           return;
@@ -3816,8 +3816,8 @@ var Jn = { exports: {} };
         d = 1 + Math.ceil((i.slideCount - i.options.slidesToShow) / i.options.slidesToScroll);
       return d - 1;
     }, C.prototype.getLeft = function(i) {
-      var u, v, d, g, p = this, j = 0;
-      return p.slideOffset = 0, v = p.$slides.first().outerHeight(!0), p.options.infinite === !0 ? (p.slideCount > p.options.slidesToShow && (p.slideOffset = p.slideWidth * p.options.slidesToShow * -1, g = -1, p.options.vertical === !0 && p.options.centerMode === !0 && (p.options.slidesToShow === 2 ? g = -1.5 : p.options.slidesToShow === 1 && (g = -2)), j = v * p.options.slidesToShow * g), p.slideCount % p.options.slidesToScroll != 0 && i + p.options.slidesToScroll > p.slideCount && p.slideCount > p.options.slidesToShow && (i > p.slideCount ? (p.slideOffset = (p.options.slidesToShow - (i - p.slideCount)) * p.slideWidth * -1, j = (p.options.slidesToShow - (i - p.slideCount)) * v * -1) : (p.slideOffset = p.slideCount % p.options.slidesToScroll * p.slideWidth * -1, j = p.slideCount % p.options.slidesToScroll * v * -1))) : i + p.options.slidesToShow > p.slideCount && (p.slideOffset = (i + p.options.slidesToShow - p.slideCount) * p.slideWidth, j = (i + p.options.slidesToShow - p.slideCount) * v), p.slideCount <= p.options.slidesToShow && (p.slideOffset = 0, j = 0), p.options.centerMode === !0 && p.slideCount <= p.options.slidesToShow ? p.slideOffset = p.slideWidth * Math.floor(p.options.slidesToShow) / 2 - p.slideWidth * p.slideCount / 2 : p.options.centerMode === !0 && p.options.infinite === !0 ? p.slideOffset += p.slideWidth * Math.floor(p.options.slidesToShow / 2) - p.slideWidth : p.options.centerMode === !0 && (p.slideOffset = 0, p.slideOffset += p.slideWidth * Math.floor(p.options.slidesToShow / 2)), u = p.options.vertical === !1 ? i * p.slideWidth * -1 + p.slideOffset : i * v * -1 + j, p.options.variableWidth === !0 && (d = p.slideCount <= p.options.slidesToShow || p.options.infinite === !1 ? p.$slideTrack.children(".slick-slide").eq(i) : p.$slideTrack.children(".slick-slide").eq(i + p.options.slidesToShow), u = p.options.rtl === !0 ? d[0] ? -1 * (p.$slideTrack.width() - d[0].offsetLeft - d.width()) : 0 : d[0] ? -1 * d[0].offsetLeft : 0, p.options.centerMode === !0 && (d = p.slideCount <= p.options.slidesToShow || p.options.infinite === !1 ? p.$slideTrack.children(".slick-slide").eq(i) : p.$slideTrack.children(".slick-slide").eq(i + p.options.slidesToShow + 1), u = p.options.rtl === !0 ? d[0] ? -1 * (p.$slideTrack.width() - d[0].offsetLeft - d.width()) : 0 : d[0] ? -1 * d[0].offsetLeft : 0, u += (p.$list.width() - d.outerWidth()) / 2)), u;
+      var u, v, d, g, p = this, H = 0;
+      return p.slideOffset = 0, v = p.$slides.first().outerHeight(!0), p.options.infinite === !0 ? (p.slideCount > p.options.slidesToShow && (p.slideOffset = p.slideWidth * p.options.slidesToShow * -1, g = -1, p.options.vertical === !0 && p.options.centerMode === !0 && (p.options.slidesToShow === 2 ? g = -1.5 : p.options.slidesToShow === 1 && (g = -2)), H = v * p.options.slidesToShow * g), p.slideCount % p.options.slidesToScroll != 0 && i + p.options.slidesToScroll > p.slideCount && p.slideCount > p.options.slidesToShow && (i > p.slideCount ? (p.slideOffset = (p.options.slidesToShow - (i - p.slideCount)) * p.slideWidth * -1, H = (p.options.slidesToShow - (i - p.slideCount)) * v * -1) : (p.slideOffset = p.slideCount % p.options.slidesToScroll * p.slideWidth * -1, H = p.slideCount % p.options.slidesToScroll * v * -1))) : i + p.options.slidesToShow > p.slideCount && (p.slideOffset = (i + p.options.slidesToShow - p.slideCount) * p.slideWidth, H = (i + p.options.slidesToShow - p.slideCount) * v), p.slideCount <= p.options.slidesToShow && (p.slideOffset = 0, H = 0), p.options.centerMode === !0 && p.slideCount <= p.options.slidesToShow ? p.slideOffset = p.slideWidth * Math.floor(p.options.slidesToShow) / 2 - p.slideWidth * p.slideCount / 2 : p.options.centerMode === !0 && p.options.infinite === !0 ? p.slideOffset += p.slideWidth * Math.floor(p.options.slidesToShow / 2) - p.slideWidth : p.options.centerMode === !0 && (p.slideOffset = 0, p.slideOffset += p.slideWidth * Math.floor(p.options.slidesToShow / 2)), u = p.options.vertical === !1 ? i * p.slideWidth * -1 + p.slideOffset : i * v * -1 + H, p.options.variableWidth === !0 && (d = p.slideCount <= p.options.slidesToShow || p.options.infinite === !1 ? p.$slideTrack.children(".slick-slide").eq(i) : p.$slideTrack.children(".slick-slide").eq(i + p.options.slidesToShow), u = p.options.rtl === !0 ? d[0] ? -1 * (p.$slideTrack.width() - d[0].offsetLeft - d.width()) : 0 : d[0] ? -1 * d[0].offsetLeft : 0, p.options.centerMode === !0 && (d = p.slideCount <= p.options.slidesToShow || p.options.infinite === !1 ? p.$slideTrack.children(".slick-slide").eq(i) : p.$slideTrack.children(".slick-slide").eq(i + p.options.slidesToShow + 1), u = p.options.rtl === !0 ? d[0] ? -1 * (p.$slideTrack.width() - d[0].offsetLeft - d.width()) : 0 : d[0] ? -1 * d[0].offsetLeft : 0, u += (p.$list.width() - d.outerWidth()) / 2)), u;
     }, C.prototype.getOption = C.prototype.slickGetOption = function(i) {
       return this.options[i];
     }, C.prototype.getNavigableIndexes = function() {
@@ -3843,11 +3843,11 @@ var Jn = { exports: {} };
         return p >= 0 && p < i.slideCount;
       });
       i.$slides.add(i.$slideTrack.find(".slick-cloned")).attr({ "aria-hidden": "true", tabindex: "-1" }).find("a, input, button, select").attr({ tabindex: "-1" }), i.$dots !== null && (i.$slides.not(i.$slideTrack.find(".slick-cloned")).each(function(p) {
-        var j = v.indexOf(p);
-        $(this).attr({ role: "tabpanel", id: "slick-slide" + i.instanceUid + p, tabindex: -1 }), j !== -1 && $(this).attr({ "aria-describedby": "slick-slide-control" + i.instanceUid + j });
+        var H = v.indexOf(p);
+        $(this).attr({ role: "tabpanel", id: "slick-slide" + i.instanceUid + p, tabindex: -1 }), H !== -1 && $(this).attr({ "aria-describedby": "slick-slide-control" + i.instanceUid + H });
       }), i.$dots.attr("role", "tablist").find("li").each(function(p) {
-        var j = v[p];
-        $(this).attr({ role: "presentation" }), $(this).find("button").first().attr({ role: "tab", id: "slick-slide-control" + i.instanceUid + p, "aria-controls": "slick-slide" + i.instanceUid + j, "aria-label": p + 1 + " of " + u, "aria-selected": null, tabindex: "-1" });
+        var H = v[p];
+        $(this).attr({ role: "presentation" }), $(this).find("button").first().attr({ role: "tab", id: "slick-slide-control" + i.instanceUid + p, "aria-controls": "slick-slide" + i.instanceUid + H, "aria-label": p + 1 + " of " + u, "aria-selected": null, tabindex: "-1" });
       }).eq(i.currentSlide).find("button").attr({ "aria-selected": "true", tabindex: "0" }).end());
       for (var d = i.currentSlide, g = d + i.options.slidesToShow; d < g; d++)
         i.$slides.eq(d).attr("tabindex", 0);
@@ -3871,8 +3871,8 @@ var Jn = { exports: {} };
       var u = this;
       i.target.tagName.match("TEXTAREA|INPUT|SELECT") || (i.keyCode === 37 && u.options.accessibility === !0 ? u.changeSlide({ data: { message: u.options.rtl === !0 ? "next" : "previous" } }) : i.keyCode === 39 && u.options.accessibility === !0 && u.changeSlide({ data: { message: u.options.rtl === !0 ? "previous" : "next" } }));
     }, C.prototype.lazyLoad = function() {
-      function i(H) {
-        $("img[data-lazy]", H).each(function() {
+      function i(j) {
+        $("img[data-lazy]", j).each(function() {
           var M = $(this), _ = $(this).attr("data-lazy"), xe = $(this).attr("data-srcset"), z = $(this).attr("data-sizes") || g.$slider.attr("data-sizes"), Ye = document.createElement("img");
           Ye.onload = function() {
             M.animate({ opacity: 0 }, 100, function() {
@@ -3887,8 +3887,8 @@ var Jn = { exports: {} };
       }
       var u, v, d, g = this;
       if (g.options.centerMode === !0 ? g.options.infinite === !0 ? d = (v = g.currentSlide + (g.options.slidesToShow / 2 + 1)) + g.options.slidesToShow + 2 : (v = Math.max(0, g.currentSlide - (g.options.slidesToShow / 2 + 1)), d = g.options.slidesToShow / 2 + 1 + 2 + g.currentSlide) : (v = g.options.infinite ? g.options.slidesToShow + g.currentSlide : g.currentSlide, d = Math.ceil(v + g.options.slidesToShow), g.options.fade === !0 && (v > 0 && v--, d <= g.slideCount && d++)), u = g.$slider.find(".slick-slide").slice(v, d), g.options.lazyLoad === "anticipated")
-        for (var p = v - 1, j = d, D = g.$slider.find(".slick-slide"), re = 0; re < g.options.slidesToScroll; re++)
-          p < 0 && (p = g.slideCount - 1), u = (u = u.add(D.eq(p))).add(D.eq(j)), p--, j++;
+        for (var p = v - 1, H = d, D = g.$slider.find(".slick-slide"), re = 0; re < g.options.slidesToScroll; re++)
+          p < 0 && (p = g.slideCount - 1), u = (u = u.add(D.eq(p))).add(D.eq(H)), p--, H++;
       i(u), g.slideCount <= g.options.slidesToShow ? i(g.$slider.find(".slick-slide")) : g.currentSlide >= g.slideCount - g.options.slidesToShow ? i(g.$slider.find(".slick-cloned").slice(0, g.options.slidesToShow)) : g.currentSlide === 0 && i(g.$slider.find(".slick-cloned").slice(-1 * g.options.slidesToShow));
     }, C.prototype.loadSlider = function() {
       var i = this;
@@ -3913,14 +3913,14 @@ var Jn = { exports: {} };
       i.preventDefault();
     }, C.prototype.progressiveLazyLoad = function(i) {
       i = i || 1;
-      var u, v, d, g, p, j = this, D = $("img[data-lazy]", j.$slider);
-      D.length ? (u = D.first(), v = u.attr("data-lazy"), d = u.attr("data-srcset"), g = u.attr("data-sizes") || j.$slider.attr("data-sizes"), (p = document.createElement("img")).onload = function() {
-        d && (u.attr("srcset", d), g && u.attr("sizes", g)), u.attr("src", v).removeAttr("data-lazy data-srcset data-sizes").removeClass("slick-loading"), j.options.adaptiveHeight === !0 && j.setPosition(), j.$slider.trigger("lazyLoaded", [j, u, v]), j.progressiveLazyLoad();
+      var u, v, d, g, p, H = this, D = $("img[data-lazy]", H.$slider);
+      D.length ? (u = D.first(), v = u.attr("data-lazy"), d = u.attr("data-srcset"), g = u.attr("data-sizes") || H.$slider.attr("data-sizes"), (p = document.createElement("img")).onload = function() {
+        d && (u.attr("srcset", d), g && u.attr("sizes", g)), u.attr("src", v).removeAttr("data-lazy data-srcset data-sizes").removeClass("slick-loading"), H.options.adaptiveHeight === !0 && H.setPosition(), H.$slider.trigger("lazyLoaded", [H, u, v]), H.progressiveLazyLoad();
       }, p.onerror = function() {
         i < 3 ? setTimeout(function() {
-          j.progressiveLazyLoad(i + 1);
-        }, 500) : (u.removeAttr("data-lazy").removeClass("slick-loading").addClass("slick-lazyload-error"), j.$slider.trigger("lazyLoadError", [j, u, v]), j.progressiveLazyLoad());
-      }, p.src = v) : j.$slider.trigger("allImagesLoaded", [j]);
+          H.progressiveLazyLoad(i + 1);
+        }, 500) : (u.removeAttr("data-lazy").removeClass("slick-loading").addClass("slick-lazyload-error"), H.$slider.trigger("lazyLoadError", [H, u, v]), H.progressiveLazyLoad());
+      }, p.src = v) : H.$slider.trigger("allImagesLoaded", [H]);
     }, C.prototype.refresh = function(i) {
       var u, v, d = this;
       v = d.slideCount - d.options.slidesToShow, !d.options.infinite && d.currentSlide > v && (d.currentSlide = v), d.slideCount <= d.options.slidesToShow && (d.currentSlide = 0), u = d.currentSlide, d.destroy(!0), $.extend(d, d.initials, { currentSlide: u }), d.init(), i || d.changeSlide({ data: { message: "index", index: u } }, !1);
@@ -3934,8 +3934,8 @@ var Jn = { exports: {} };
               d.breakpoints[v] && d.breakpoints[v] === u && d.breakpoints.splice(v, 1), v--;
             d.breakpoints.push(u), d.breakpointSettings[u] = g[i].settings;
           }
-        d.breakpoints.sort(function(p, j) {
-          return d.options.mobileFirst ? p - j : j - p;
+        d.breakpoints.sort(function(p, H) {
+          return d.options.mobileFirst ? p - H : H - p;
         });
       }
     }, C.prototype.reinit = function() {
@@ -3971,8 +3971,8 @@ var Jn = { exports: {} };
         i.$list.css("height", u);
       }
     }, C.prototype.setOption = C.prototype.slickSetOption = function() {
-      var i, u, v, d, g, p = this, j = !1;
-      if ($.type(arguments[0]) === "object" ? (v = arguments[0], j = arguments[1], g = "multiple") : $.type(arguments[0]) === "string" && (v = arguments[0], d = arguments[1], j = arguments[2], arguments[0] === "responsive" && $.type(arguments[1]) === "array" ? g = "responsive" : arguments[1] !== void 0 && (g = "single")), g === "single")
+      var i, u, v, d, g, p = this, H = !1;
+      if ($.type(arguments[0]) === "object" ? (v = arguments[0], H = arguments[1], g = "multiple") : $.type(arguments[0]) === "string" && (v = arguments[0], d = arguments[1], H = arguments[2], arguments[0] === "responsive" && $.type(arguments[1]) === "array" ? g = "responsive" : arguments[1] !== void 0 && (g = "single")), g === "single")
         p.options[v] = d;
       else if (g === "multiple")
         $.each(v, function(D, re) {
@@ -3987,7 +3987,7 @@ var Jn = { exports: {} };
               p.options.responsive[i].breakpoint === d[u].breakpoint && p.options.responsive.splice(i, 1), i--;
             p.options.responsive.push(d[u]);
           }
-      j && (p.unload(), p.reinit());
+      H && (p.unload(), p.reinit());
     }, C.prototype.setPosition = function() {
       var i = this;
       i.setDimensions(), i.setHeight(), i.options.fade === !1 ? i.setCSS(i.getLeft(i.currentSlide)) : i.setFade(), i.$slider.trigger("setPosition", [i]);
@@ -3997,8 +3997,8 @@ var Jn = { exports: {} };
     }, C.prototype.setSlideClasses = function(i) {
       var u, v, d, g, p = this;
       if (v = p.$slider.find(".slick-slide").removeClass("slick-active slick-center slick-current").attr("aria-hidden", "true"), p.$slides.eq(i).addClass("slick-current"), p.options.centerMode === !0) {
-        var j = p.options.slidesToShow % 2 == 0 ? 1 : 0;
-        u = Math.floor(p.options.slidesToShow / 2), p.options.infinite === !0 && (i >= u && i <= p.slideCount - 1 - u ? p.$slides.slice(i - u + j, i + u + 1).addClass("slick-active").attr("aria-hidden", "false") : (d = p.options.slidesToShow + i, v.slice(d - u + 1 + j, d + u + 2).addClass("slick-active").attr("aria-hidden", "false")), i === 0 ? v.eq(v.length - 1 - p.options.slidesToShow).addClass("slick-center") : i === p.slideCount - 1 && v.eq(p.options.slidesToShow).addClass("slick-center")), p.$slides.eq(i).addClass("slick-center");
+        var H = p.options.slidesToShow % 2 == 0 ? 1 : 0;
+        u = Math.floor(p.options.slidesToShow / 2), p.options.infinite === !0 && (i >= u && i <= p.slideCount - 1 - u ? p.$slides.slice(i - u + H, i + u + 1).addClass("slick-active").attr("aria-hidden", "false") : (d = p.options.slidesToShow + i, v.slice(d - u + 1 + H, d + u + 2).addClass("slick-active").attr("aria-hidden", "false")), i === 0 ? v.eq(v.length - 1 - p.options.slidesToShow).addClass("slick-center") : i === p.slideCount - 1 && v.eq(p.options.slidesToShow).addClass("slick-center")), p.$slides.eq(i).addClass("slick-center");
       } else
         i >= 0 && i <= p.slideCount - p.options.slidesToShow ? p.$slides.slice(i, i + p.options.slidesToShow).addClass("slick-active").attr("aria-hidden", "false") : v.length <= p.options.slidesToShow ? v.addClass("slick-active").attr("aria-hidden", "false") : (g = p.slideCount % p.options.slidesToShow, d = p.options.infinite === !0 ? p.options.slidesToShow + i : i, p.options.slidesToShow == p.options.slidesToScroll && p.slideCount - i < p.options.slidesToShow ? v.slice(d - (p.options.slidesToShow - g), d + g).addClass("slick-active").attr("aria-hidden", "false") : v.slice(d, d + p.options.slidesToShow).addClass("slick-active").attr("aria-hidden", "false"));
       p.options.lazyLoad !== "ondemand" && p.options.lazyLoad !== "anticipated" || p.lazyLoad();
@@ -4020,24 +4020,24 @@ var Jn = { exports: {} };
       var u = this, v = $(i.target).is(".slick-slide") ? $(i.target) : $(i.target).parents(".slick-slide"), d = parseInt(v.attr("data-slick-index"));
       d || (d = 0), u.slideCount <= u.options.slidesToShow ? u.slideHandler(d, !1, !0) : u.slideHandler(d);
     }, C.prototype.slideHandler = function(i, u, v) {
-      var d, g, p, j, D, re = null, H = this;
-      if (u = u || !1, !(H.animating === !0 && H.options.waitForAnimate === !0 || H.options.fade === !0 && H.currentSlide === i))
-        if (u === !1 && H.asNavFor(i), d = i, re = H.getLeft(d), j = H.getLeft(H.currentSlide), H.currentLeft = H.swipeLeft === null ? j : H.swipeLeft, H.options.infinite === !1 && H.options.centerMode === !1 && (i < 0 || i > H.getDotCount() * H.options.slidesToScroll))
-          H.options.fade === !1 && (d = H.currentSlide, v !== !0 ? H.animateSlide(j, function() {
-            H.postSlide(d);
-          }) : H.postSlide(d));
-        else if (H.options.infinite === !1 && H.options.centerMode === !0 && (i < 0 || i > H.slideCount - H.options.slidesToScroll))
-          H.options.fade === !1 && (d = H.currentSlide, v !== !0 ? H.animateSlide(j, function() {
-            H.postSlide(d);
-          }) : H.postSlide(d));
+      var d, g, p, H, D, re = null, j = this;
+      if (u = u || !1, !(j.animating === !0 && j.options.waitForAnimate === !0 || j.options.fade === !0 && j.currentSlide === i))
+        if (u === !1 && j.asNavFor(i), d = i, re = j.getLeft(d), H = j.getLeft(j.currentSlide), j.currentLeft = j.swipeLeft === null ? H : j.swipeLeft, j.options.infinite === !1 && j.options.centerMode === !1 && (i < 0 || i > j.getDotCount() * j.options.slidesToScroll))
+          j.options.fade === !1 && (d = j.currentSlide, v !== !0 ? j.animateSlide(H, function() {
+            j.postSlide(d);
+          }) : j.postSlide(d));
+        else if (j.options.infinite === !1 && j.options.centerMode === !0 && (i < 0 || i > j.slideCount - j.options.slidesToScroll))
+          j.options.fade === !1 && (d = j.currentSlide, v !== !0 ? j.animateSlide(H, function() {
+            j.postSlide(d);
+          }) : j.postSlide(d));
         else {
-          if (H.options.autoplay && clearInterval(H.autoPlayTimer), g = d < 0 ? H.slideCount % H.options.slidesToScroll != 0 ? H.slideCount - H.slideCount % H.options.slidesToScroll : H.slideCount + d : d >= H.slideCount ? H.slideCount % H.options.slidesToScroll != 0 ? 0 : d - H.slideCount : d, H.animating = !0, H.$slider.trigger("beforeChange", [H, H.currentSlide, g]), p = H.currentSlide, H.currentSlide = g, H.setSlideClasses(H.currentSlide), H.options.asNavFor && (D = (D = H.getNavTarget()).slick("getSlick")).slideCount <= D.options.slidesToShow && D.setSlideClasses(H.currentSlide), H.updateDots(), H.updateArrows(), H.options.fade === !0)
-            return v !== !0 ? (H.fadeSlideOut(p), H.fadeSlide(g, function() {
-              H.postSlide(g);
-            })) : H.postSlide(g), void H.animateHeight();
-          v !== !0 ? H.animateSlide(re, function() {
-            H.postSlide(g);
-          }) : H.postSlide(g);
+          if (j.options.autoplay && clearInterval(j.autoPlayTimer), g = d < 0 ? j.slideCount % j.options.slidesToScroll != 0 ? j.slideCount - j.slideCount % j.options.slidesToScroll : j.slideCount + d : d >= j.slideCount ? j.slideCount % j.options.slidesToScroll != 0 ? 0 : d - j.slideCount : d, j.animating = !0, j.$slider.trigger("beforeChange", [j, j.currentSlide, g]), p = j.currentSlide, j.currentSlide = g, j.setSlideClasses(j.currentSlide), j.options.asNavFor && (D = (D = j.getNavTarget()).slick("getSlick")).slideCount <= D.options.slidesToShow && D.setSlideClasses(j.currentSlide), j.updateDots(), j.updateArrows(), j.options.fade === !0)
+            return v !== !0 ? (j.fadeSlideOut(p), j.fadeSlide(g, function() {
+              j.postSlide(g);
+            })) : j.postSlide(g), void j.animateHeight();
+          v !== !0 ? j.animateSlide(re, function() {
+            j.postSlide(g);
+          }) : j.postSlide(g);
         }
     }, C.prototype.startLoad = function() {
       var i = this;
@@ -4078,8 +4078,8 @@ var Jn = { exports: {} };
             u.swipeEnd(i);
         }
     }, C.prototype.swipeMove = function(i) {
-      var u, v, d, g, p, j, D = this;
-      return p = i.originalEvent !== void 0 ? i.originalEvent.touches : null, !(!D.dragging || D.scrolling || p && p.length !== 1) && (u = D.getLeft(D.currentSlide), D.touchObject.curX = p !== void 0 ? p[0].pageX : i.clientX, D.touchObject.curY = p !== void 0 ? p[0].pageY : i.clientY, D.touchObject.swipeLength = Math.round(Math.sqrt(Math.pow(D.touchObject.curX - D.touchObject.startX, 2))), j = Math.round(Math.sqrt(Math.pow(D.touchObject.curY - D.touchObject.startY, 2))), !D.options.verticalSwiping && !D.swiping && j > 4 ? (D.scrolling = !0, !1) : (D.options.verticalSwiping === !0 && (D.touchObject.swipeLength = j), v = D.swipeDirection(), i.originalEvent !== void 0 && D.touchObject.swipeLength > 4 && (D.swiping = !0, i.preventDefault()), g = (D.options.rtl === !1 ? 1 : -1) * (D.touchObject.curX > D.touchObject.startX ? 1 : -1), D.options.verticalSwiping === !0 && (g = D.touchObject.curY > D.touchObject.startY ? 1 : -1), d = D.touchObject.swipeLength, D.touchObject.edgeHit = !1, D.options.infinite === !1 && (D.currentSlide === 0 && v === "right" || D.currentSlide >= D.getDotCount() && v === "left") && (d = D.touchObject.swipeLength * D.options.edgeFriction, D.touchObject.edgeHit = !0), D.options.vertical === !1 ? D.swipeLeft = u + d * g : D.swipeLeft = u + d * (D.$list.height() / D.listWidth) * g, D.options.verticalSwiping === !0 && (D.swipeLeft = u + d * g), D.options.fade !== !0 && D.options.touchMove !== !1 && (D.animating === !0 ? (D.swipeLeft = null, !1) : void D.setCSS(D.swipeLeft))));
+      var u, v, d, g, p, H, D = this;
+      return p = i.originalEvent !== void 0 ? i.originalEvent.touches : null, !(!D.dragging || D.scrolling || p && p.length !== 1) && (u = D.getLeft(D.currentSlide), D.touchObject.curX = p !== void 0 ? p[0].pageX : i.clientX, D.touchObject.curY = p !== void 0 ? p[0].pageY : i.clientY, D.touchObject.swipeLength = Math.round(Math.sqrt(Math.pow(D.touchObject.curX - D.touchObject.startX, 2))), H = Math.round(Math.sqrt(Math.pow(D.touchObject.curY - D.touchObject.startY, 2))), !D.options.verticalSwiping && !D.swiping && H > 4 ? (D.scrolling = !0, !1) : (D.options.verticalSwiping === !0 && (D.touchObject.swipeLength = H), v = D.swipeDirection(), i.originalEvent !== void 0 && D.touchObject.swipeLength > 4 && (D.swiping = !0, i.preventDefault()), g = (D.options.rtl === !1 ? 1 : -1) * (D.touchObject.curX > D.touchObject.startX ? 1 : -1), D.options.verticalSwiping === !0 && (g = D.touchObject.curY > D.touchObject.startY ? 1 : -1), d = D.touchObject.swipeLength, D.touchObject.edgeHit = !1, D.options.infinite === !1 && (D.currentSlide === 0 && v === "right" || D.currentSlide >= D.getDotCount() && v === "left") && (d = D.touchObject.swipeLength * D.options.edgeFriction, D.touchObject.edgeHit = !0), D.options.vertical === !1 ? D.swipeLeft = u + d * g : D.swipeLeft = u + d * (D.$list.height() / D.listWidth) * g, D.options.verticalSwiping === !0 && (D.swipeLeft = u + d * g), D.options.fade !== !0 && D.options.touchMove !== !1 && (D.animating === !0 ? (D.swipeLeft = null, !1) : void D.setCSS(D.swipeLeft))));
     }, C.prototype.swipeStart = function(i) {
       var u, v = this;
       if (v.interrupted = !0, v.touchObject.fingerCount !== 1 || v.slideCount <= v.options.slidesToShow)
@@ -4154,45 +4154,48 @@ const Zn = {
     default: !0
   },
   /**
-   * @description Set the slider to be the navigation of other slider (Class or ID Name)
+   * @description Set the slider to be the navigation of other slider
    * @default null
    */
   asNavFor: {
-    type: [String, null],
+    type: [Object, String],
     default: null
   },
-  //     /**
-  //    * @description Change where the navigation arrows are attached
-  //    * @default null
-  //    */
-  //     appendArrows: {
-  //         type: [String, null] as PropType<JQuery.Selector | JQuery.htmlString>,
-  //         default: null,
-  //       },
-  //     /**
-  //    * @description Change where the navigation dots are attached
-  //    * @default null
-  //    */
-  //     appendDots: {
-  //         type: [String, null] as PropType<JQuery.Selector | JQuery.htmlString>,
-  //         default: null,
-  //       },
-  //     /**
-  //    * @description Allows you to select a node or customize the HTML for the "Previous" arrow.
-  //    * @default <button type="button" class="slick-prev">Previous</button>
-  //    */
-  //     prevArrow: {
-  //         type: [String, null] as PropType<JQuery.Selector>,
-  //         default: null,
-  //       },
-  //     /**
-  //    * @description Allows you to select a node or customize the HTML for the "Next" arrow.
-  //    * @default <button type="button" class="slick-next">Next</button>
-  //    */
-  //     nextArrow: {
-  //         type: [String, null] as PropType<JQuery.Selector>,
-  //         default: null,
-  //       },
+  // /**
+  //  * @description  Change where the navigation arrows are attached (Selector, htmlString, Array, Element, jQuery object)
+  //  * `false` will prevent arrows from being created/appended
+  //  * @default $(element)
+  //  */
+  // appendArrows: {
+  //   type: [Object, Array, String, Boolean] as PropType<
+  //     Element | Element[] | JQuery | string | boolean
+  //   >,
+  //   default: null,
+  // },
+  // /**
+  //  * @description Change where the navigation dots are attached (Selector, htmlString, Array, Element, jQuery object)
+  //  * @default $(element)
+  //  */
+  // appendDots: {
+  //   type: [String] as PropType<Element | Element[] | JQuery | string>,
+  //   default: "null",
+  // },
+  /**
+   * @description Allows you to select a node or customize the HTML for the "Previous" arrow.
+   * @default '<button type="button" class="slick-prev">Previous</button>
+   */
+  prevArrow: {
+    type: [Object, String],
+    default: '<button type="button" class="slick-prev">Previous</button>'
+  },
+  /**
+   * @description Allows you to select a node or customize the HTML for the "Next" arrow.
+   * @default '<button type="button" class="slick-next">Next</button>'
+   */
+  nextArrow: {
+    type: [Object, String],
+    default: '<button type="button" class="slick-next">Next</button>'
+  },
   /**
    * @description Enables centered view with partial prev/next slides. Use with odd numbered slidesToShow counts.
    * @default false
@@ -4222,7 +4225,7 @@ const Zn = {
   },
   /**
    * @description Custom paging templates. See source for use example.
-   * @default () => void 0
+   * @default n/a
    */
   customPaging: {
     type: Function,
@@ -4360,7 +4363,7 @@ const Zn = {
    * @default null
    */
   responsive: {
-    type: [Object, null],
+    type: [Object],
     default: null
   },
   /**

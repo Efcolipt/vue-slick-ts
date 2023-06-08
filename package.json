@@ -34,7 +34,7 @@
     "dev": "vite",
     "lint:fix": "eslint --fix --ext .ts,vue ./",
     "build": "vite build && vue-tsc --project tsconfig.production.json",
-    "prepare": "husky install"
+    "prepare": "node -e \"try { require('husky').install() } catch (e) {if (e.code !== 'MODULE_NOT_FOUND') throw e}\""
   },
   "repository": {
     "type": "git",

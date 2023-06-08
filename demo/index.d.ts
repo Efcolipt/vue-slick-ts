@@ -1,1 +1,1 @@
-/// <reference types="../../dist/types/index.d.ts" />
+/// <reference types="../types/vue-shim.d.ts" />

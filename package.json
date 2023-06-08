@@ -1,6 +1,6 @@
 {
   "name": "vue-slick-ts",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "description": "Vue/Nuxt component for slick-carousel with full Typescript",
   "copyright": "Copyright © 2023-present Efcolipt",
   "main": "./dist/vue-slick-ts.umd.js",

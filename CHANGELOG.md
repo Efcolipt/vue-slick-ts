@@ -1,5 +1,18 @@
 # Changelog
 
+# [0.4.0](https://github.com/Efcolipt/vue-slick-ts/compare/0.3.2...0.4.0) (2023-06-08)
+
+
+### Bug Fixes
+
+* install husky ([6d5aa84](https://github.com/Efcolipt/vue-slick-ts/commit/6d5aa84c89d66cd0ecebe0c6174999f7418f54fc))
+* vue carousel types ([6f1fb06](https://github.com/Efcolipt/vue-slick-ts/commit/6f1fb06ef32ab0d61230eeb10b9c69113503c548))
+
+
+### Features
+
+* add carousel props ([41c2a27](https://github.com/Efcolipt/vue-slick-ts/commit/41c2a27125f720855d920546054c279e1ade0dcc))
+
 ## [0.3.2](https://github.com/Efcolipt/vue-slick-ts/compare/0.3.1...0.3.2) (2023-06-07)
 
 

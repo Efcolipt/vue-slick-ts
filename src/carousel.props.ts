@@ -42,45 +42,48 @@ export const carouselProps = {
     default: true,
   },
   /**
-   * @description Set the slider to be the navigation of other slider (Class or ID Name)
+   * @description Set the slider to be the navigation of other slider
    * @default null
    */
   asNavFor: {
-    type: [String, null] as PropType<string | null>,
+    type: [Object, String] as PropType<Element | JQuery | string>,
     default: null,
   },
-  //     /**
-  //    * @description Change where the navigation arrows are attached
-  //    * @default null
-  //    */
-  //     appendArrows: {
-  //         type: [String, null] as PropType<JQuery.Selector | JQuery.htmlString>,
-  //         default: null,
-  //       },
-  //     /**
-  //    * @description Change where the navigation dots are attached
-  //    * @default null
-  //    */
-  //     appendDots: {
-  //         type: [String, null] as PropType<JQuery.Selector | JQuery.htmlString>,
-  //         default: null,
-  //       },
-  //     /**
-  //    * @description Allows you to select a node or customize the HTML for the "Previous" arrow.
-  //    * @default <button type="button" class="slick-prev">Previous</button>
-  //    */
-  //     prevArrow: {
-  //         type: [String, null] as PropType<JQuery.Selector>,
-  //         default: null,
-  //       },
-  //     /**
-  //    * @description Allows you to select a node or customize the HTML for the "Next" arrow.
-  //    * @default <button type="button" class="slick-next">Next</button>
-  //    */
-  //     nextArrow: {
-  //         type: [String, null] as PropType<JQuery.Selector>,
-  //         default: null,
-  //       },
+  // /**
+  //  * @description  Change where the navigation arrows are attached (Selector, htmlString, Array, Element, jQuery object)
+  //  * `false` will prevent arrows from being created/appended
+  //  * @default $(element)
+  //  */
+  // appendArrows: {
+  //   type: [Object, Array, String, Boolean] as PropType<
+  //     Element | Element[] | JQuery | string | boolean
+  //   >,
+  //   default: null,
+  // },
+  // /**
+  //  * @description Change where the navigation dots are attached (Selector, htmlString, Array, Element, jQuery object)
+  //  * @default $(element)
+  //  */
+  // appendDots: {
+  //   type: [String] as PropType<Element | Element[] | JQuery | string>,
+  //   default: "null",
+  // },
+  /**
+   * @description Allows you to select a node or customize the HTML for the "Previous" arrow.
+   * @default '<button type="button" class="slick-prev">Previous</button>
+   */
+  prevArrow: {
+    type: [Object, String] as PropType<Element | JQuery | string>,
+    default: '<button type="button" class="slick-prev">Previous</button>',
+  },
+  /**
+   * @description Allows you to select a node or customize the HTML for the "Next" arrow.
+   * @default '<button type="button" class="slick-next">Next</button>'
+   */
+  nextArrow: {
+    type: [Object, String] as PropType<Element | JQuery | string>,
+    default: '<button type="button" class="slick-next">Next</button>',
+  },
   /**
    * @description Enables centered view with partial prev/next slides. Use with odd numbered slidesToShow counts.
    * @default false
@@ -110,10 +113,10 @@ export const carouselProps = {
   },
   /**
    * @description Custom paging templates. See source for use example.
-   * @default () => void 0
+   * @default n/a
    */
   customPaging: {
-    type: Function as PropType<() => void>,
+    type: Function as PropType<(slider: any, i: number) => string>,
     default: () => void 0,
   },
   /**
@@ -247,7 +250,7 @@ export const carouselProps = {
    * @default null
    */
   responsive: {
-    type: [Object, null] as PropType<object>,
+    type: [Object] as PropType<object>,
     default: null,
   },
   /**

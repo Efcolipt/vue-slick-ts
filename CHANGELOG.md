@@ -1,5 +1,17 @@
 # Changelog
 
+# [0.5.0](https://github.com/Efcolipt/vue-slick-ts/compare/0.4.1...0.5.0) (2023-06-08)
+
+
+### Features
+
+* add cdn umd files ([5aa72ba](https://github.com/Efcolipt/vue-slick-ts/commit/5aa72bae8d6a924c4ec839a24f52dc5bc4ec4aa5))
+
+
+### Performance Improvements
+
+* remove demo files ([d22b2a2](https://github.com/Efcolipt/vue-slick-ts/commit/d22b2a2b83b80f33abad256e547c953d9c702d05))
+
 ## [0.4.1](https://github.com/Efcolipt/vue-slick-ts/compare/0.4.0...0.4.1) (2023-06-08)
 
 

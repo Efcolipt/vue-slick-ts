@@ -7,10 +7,18 @@
 
 ## Legacy support vue2 slick
 
-This is package support only vue version >= 3 <br />
+This is package support only vue version >= 3.2 <br />
 For Legacy support u can find [here](https://www.npmjs.com/package/vue-slick)
 
 ## Installation
+
+Prerequisite
+
+```sh
+npm install -D @types/jquery
+# or
+yarn add -D @types/jquery
+```
 
 ```sh
 npm install vue-slick-ts

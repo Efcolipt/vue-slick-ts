@@ -6,6 +6,9 @@ import vue from "@vitejs/plugin-vue";
 export default defineConfig(({ command }) => {
   if (command === "serve") {
     return {
+      optimizeDeps: {
+        include: ["slick-carousel", "jquery"],
+      },
       root: "./src/demo",
       plugins: [vue()],
     };

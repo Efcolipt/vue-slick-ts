@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { VueSlickCarousel } from '../dist/vue-slick-ts.es';
-import '../../dist/css/slick.css'
 
-const handelBeforeChange = (args: SlickEvents) => {
+const handelBeforeChange = (args) => {
+    console.log(args);
 }
 </script>
 

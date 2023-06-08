@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1](https://github.com/Efcolipt/vue-slick-ts/compare/0.4.0...0.4.1) (2023-06-08)
+
+
+### Bug Fixes
+
+* types vue-slick-ts ([2bc6af3](https://github.com/Efcolipt/vue-slick-ts/commit/2bc6af347b4cb925d11e014c7581e3dc7849c8cc))
+
 # [0.4.0](https://github.com/Efcolipt/vue-slick-ts/compare/0.3.2...0.4.0) (2023-06-08)
 
 

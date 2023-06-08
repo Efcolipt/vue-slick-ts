@@ -3,17 +3,7 @@ import { defineConfig } from "vite";
 import { viteStaticCopy } from "vite-plugin-static-copy";
 import vue from "@vitejs/plugin-vue";
 
-export default defineConfig(({ command }) => {
-  if (command === "serve") {
-    return {
-      optimizeDeps: {
-        include: ["slick-carousel", "jquery"],
-      },
-      root: "./src/demo",
-      plugins: [vue()],
-    };
-  }
-
+export default defineConfig(() => {
   return {
     optimizeDeps: {
       include: ["slick-carousel", "jquery"],

@@ -14,19 +14,20 @@
   ],
   "exports": {
     ".": {
-      "import": {
-        "default": "./dist/vue-slick-ts.es.js"
-      },
-      "require": "./dist/vue-slick-ts.cjs.js",
+      "types": "./dist/types/index.d.ts",
+      "require": "./dist/vue-slick-ts.umd.js",
       "default": "./dist/vue-slick-ts.es.js"
     },
-    "./types": "./dist/types/index.d.ts",
-    "./package.json": "./package.json",
-    "./dist/*": "./dist/*",
-    "./dist/style.css": "./dist/css/style.css",
-    "./dist/style-theme.css": "./dist/css/style-theme.css"
+    "./dist/css/style.css": {
+      "import": "./dist/css/style.css",
+      "require": "./dist/css/style.css"
+    },
+    "./dist/css/style-theme.css": {
+      "import": "./dist/css/style-theme.css",
+      "require": "./dist/css/style-theme.css"
+    },
+    "./package.json": "./package.json"
   },
-  "readmeFilename": "README.md",
   "engines": {
     "node": ">=14.19.3"
   },
@@ -36,9 +37,10 @@
     "build": "vite build && vue-tsc --project tsconfig.production.json",
     "prepare": "node -e \"try { require('husky').install() } catch (e) {if (e.code !== 'MODULE_NOT_FOUND') throw e}\""
   },
+  "author": "Baykov Ivan <efcolipt@gmail.com> (https://github.com/Efcolipt/)",
   "repository": {
     "type": "git",
-    "url": "git@github.com:Efcolipt/vue-slick-ts.git"
+    "url": "https://github.com/Efcolipt/vue-slick-ts.git"
   },
   "keywords": [
     "slick",
@@ -49,7 +51,6 @@
     "vue-slick",
     "vue3-slick"
   ],
-  "author": "Ivan Baykov",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Efcolipt/vue-slick-ts/issues"

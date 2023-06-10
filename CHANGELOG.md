@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.1](https://github.com/Efcolipt/vue-slick-ts/compare/0.7.0...0.7.1) (2023-06-10)
+
+
+### Bug Fixes
+
+* import styles carousel ([df0d8e6](https://github.com/Efcolipt/vue-slick-ts/commit/df0d8e625039666f5b914a7b1df053bfca3b6aec))
+
 # [0.7.0](https://github.com/Efcolipt/vue-slick-ts/compare/0.6.0...0.7.0) (2023-06-10)
 
 

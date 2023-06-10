@@ -1,5 +1,17 @@
 # Changelog
 
+# [0.8.0](https://github.com/Efcolipt/vue-slick-ts/compare/0.7.6...0.8.0) (2023-06-10)
+
+
+### Bug Fixes
+
+* add imports types ([eae0327](https://github.com/Efcolipt/vue-slick-ts/commit/eae0327e12b890046d1ac203c3b6bdc8b43a04ff))
+
+
+### Features
+
+* add types export ([41e14a4](https://github.com/Efcolipt/vue-slick-ts/commit/41e14a4357b66cf5ba9bb0e70ab3106c3c0894fa))
+
 ## [0.7.6](https://github.com/Efcolipt/vue-slick-ts/compare/0.7.5...0.7.6) (2023-06-10)
 
 

@@ -18,6 +18,7 @@
     },
     "./dist/css/style.css": "./dist/css/style.css",
     "./dist/css/style-theme.css": "./dist/css/style-theme.css",
+    "./dist": "./dist/*",
     "./package.json": "./package.json"
   },
   "engines": {

@@ -1,9 +1,13 @@
-# Vue/Nuxt slick with Typescript
+<p align="center">
+<h1>Vue/Nuxt slick with Typescript</h1>
+<br/>    
 
 [![npm version](https://img.shields.io/npm/v/vue-slick-ts.svg?style=flat-square)](http://badge.fury.io/js/vue-slick-ts)
 [![quality](https://packagequality.com/shield/vue-slick-ts.svg)](https://packagequality.com/#?package=vue-slick-ts)
-[![npm downloads](https://img.shields.io/npm/dm/vue-slick-ts.svg?style=flat-square)](http://badge.fury.io/js/vue-slick-ts)
+[![downloads](https://img.shields.io/npm/dm/vue-slick-ts.svg?style=flat-square)](http://badge.fury.io/js/vue-slick-ts)
 [![npm license](https://img.shields.io/npm/l/vue-slick-ts.svg?style=flat-square)](http://badge.fury.io/js/vue-slick-ts)
+</p>
+
 
 ## Support
 

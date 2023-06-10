@@ -391,10 +391,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         readonly default: false;
     };
     readonly pauseOnFocus: {
-        readonly type: import("vue").PropType<boolean>; /**
-         * The current direction (`0` for left and down, `1` for right and up).
-         * Default: 0
-         */
+        readonly type: import("vue").PropType<boolean>;
         readonly default: true;
     };
     readonly pauseOnHover: {
@@ -402,11 +399,17 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         readonly default: false;
     };
     readonly pauseOnDotsHover: {
-        readonly type: import("vue").PropType<boolean>;
+        readonly type: import("vue").PropType<boolean>; /**
+         * The current direction (`0` for left and down, `1` for right and up).
+         * Default: 0
+         */
         readonly default: false;
     };
     readonly respondTo: {
-        readonly type: import("vue").PropType<string>;
+        readonly type: import("vue").PropType<string>; /**
+         * The index of the current slide.
+         * Default: 0
+         */
         readonly default: "window";
         readonly validator: (val: string) => boolean;
     };
@@ -431,7 +434,10 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         readonly default: 1;
     };
     readonly slidesToScroll: {
-        readonly type: import("vue").PropType<number>;
+        readonly type: import("vue").PropType<number>; /**
+         * jQuery instance that contains the "slide track".
+         * Default: null
+         */
         readonly default: 1;
     };
     readonly speed: {
@@ -477,18 +483,35 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
     readonly rtl: {
         readonly type: import("vue").PropType<boolean>;
         readonly default: false;
-    };
+    }; /**
+     * Default: false
+     */
     readonly waitForAnimate: {
         readonly type: import("vue").PropType<boolean>;
         readonly default: true;
     };
     readonly zIndex: {
         readonly type: import("vue").PropType<number>;
+        /**
+         * Default: null
+         */
         readonly default: 1000;
     };
 }, {
     slickSlickCurrentSlide(): number;
     slickNext(): void;
+    slickPrev(): void;
+    slickPause(): void;
+    slickPlay(): void;
+    getSlick(): SlickInstance;
+    unslick(): void;
+    slickGoTo(slideNumber: number, dotAnimate: boolean): void;
+    slickAdd(html: string, index: number | boolean, addBefore: boolean): void;
+    slickRemove(index: number | boolean, removeBefore: boolean, removeAll: boolean): void;
+    slickFilter(filter: string): void;
+    slickUnfilter(index: number): void;
+    slickGetOption(option: string): void;
+    slickSetOption(option: string, value: string, refresh: boolean): void;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     init: (event: JQuery.Event, slickInstance: SlickInstance) => void;
     reInit: (event: JQuery.Event, slickInstance: SlickInstance) => void;
@@ -597,10 +620,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         readonly default: false;
     };
     readonly pauseOnFocus: {
-        readonly type: import("vue").PropType<boolean>; /**
-         * The current direction (`0` for left and down, `1` for right and up).
-         * Default: 0
-         */
+        readonly type: import("vue").PropType<boolean>;
         readonly default: true;
     };
     readonly pauseOnHover: {
@@ -608,11 +628,17 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         readonly default: false;
     };
     readonly pauseOnDotsHover: {
-        readonly type: import("vue").PropType<boolean>;
+        readonly type: import("vue").PropType<boolean>; /**
+         * The current direction (`0` for left and down, `1` for right and up).
+         * Default: 0
+         */
         readonly default: false;
     };
     readonly respondTo: {
-        readonly type: import("vue").PropType<string>;
+        readonly type: import("vue").PropType<string>; /**
+         * The index of the current slide.
+         * Default: 0
+         */
         readonly default: "window";
         readonly validator: (val: string) => boolean;
     };
@@ -637,7 +663,10 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         readonly default: 1;
     };
     readonly slidesToScroll: {
-        readonly type: import("vue").PropType<number>;
+        readonly type: import("vue").PropType<number>; /**
+         * jQuery instance that contains the "slide track".
+         * Default: null
+         */
         readonly default: 1;
     };
     readonly speed: {
@@ -683,13 +712,18 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
     readonly rtl: {
         readonly type: import("vue").PropType<boolean>;
         readonly default: false;
-    };
+    }; /**
+     * Default: false
+     */
     readonly waitForAnimate: {
         readonly type: import("vue").PropType<boolean>;
         readonly default: true;
     };
     readonly zIndex: {
         readonly type: import("vue").PropType<number>;
+        /**
+         * Default: null
+         */
         readonly default: 1000;
     };
 }>> & {

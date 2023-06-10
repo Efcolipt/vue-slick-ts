@@ -1,186 +1,178 @@
 <template>
-    <div class="vue-slick__carousel">
-        <slot></slot>
-    </div>
+  <div class="vue-slick__carousel">
+    <slot></slot>
+  </div>
 </template>
 
 <script setup lang="ts">
-import $ from "jquery";
-import { onMounted } from "vue";
-import "slick-carousel";
-import { carouselProps } from "./carousel.props";
+  import $ from "jquery";
+  import { ExtractPublicPropTypes, onMounted, ref } from "vue";
+  import "slick-carousel";
+  import { carouselProps } from "./carousel";
 
+  
 enum ListSlickEvents {
-    SLICK_EVENTS_INIT = "init",
-    SLICK_EVENTS_REINIT = "reInit",
-    SLICK_EVENTS_DESTROY = "destroy",
-    SLICK_EVENTS_SET_POSITION = "setPosition",
-    SLICK_EVENTS_AFTER_CHANGE = "afterChange",
-    SLICK_EVENTS_BEFORE_CHANGE = "beforeChange",
-    SLICK_EVENTS_BREAKPOINT = "breakpoint",
-    SLICK_EVENTS_EDGE = "edge",
-    SLICK_EVENTS_SWIPE = "swipe",
-    SLICK_EVENTS_LAZY_LOADED = "lazyLoaded",
-    SLICK_EVENTS_LAZY_LOAD_ERROR = "lazyLoadError",
+  SLICK_EVENTS_INIT = "init",
+  SLICK_EVENTS_REINIT = "reInit",
+  SLICK_EVENTS_DESTROY = "destroy",
+  SLICK_EVENTS_SET_POSITION = "setPosition",
+  SLICK_EVENTS_AFTER_CHANGE = "afterChange",
+  SLICK_EVENTS_BEFORE_CHANGE = "beforeChange",
+  SLICK_EVENTS_BREAKPOINT = "breakpoint",
+  SLICK_EVENTS_EDGE = "edge",
+  SLICK_EVENTS_SWIPE = "swipe",
+  SLICK_EVENTS_LAZY_LOADED = "lazyLoaded",
+  SLICK_EVENTS_LAZY_LOAD_ERROR = "lazyLoadError",
 }
 
+enum ListSlickMethods {
+  SLICK_METHODS_CURRENT_SLIDE = "slickSlickCurrentSlide",
+  SLICK_METHODS_GO_TO = "slickGoTo",
+  SLICK_METHODS_NEXT = "slickNext",
+  SLICK_METHODS_PREV = "slickPrev",
+  SLICK_METHODS_PAUSE = "slickPause",
+  SLICK_METHODS_PLAY = "slickPlay",
+  SLICK_METHODS_ADD = "slickAdd",
+  SLICK_METHODS_REMOVE = "slickRemove",
+  SLICK_METHODS_FILTER = "slickFilter",
+  SLICK_METHODS_UNFILTER = "slickUnfilter",
+  SLICK_METHODS_GET_OPTION = "slickGetOption",
+  SLICK_METHODS_SET_OPTION = "slickSetOption",
+  SLICK_METHODS_UNSLICK = "unslick",
+  SLICK_METHODS_GET_SLICK = "getSlick",
+}
 
-// enum ListSlickMethods {
-//   SLICK_METHODS_CURRENT_SLIDE = "slickSlickCurrentSlide",
-//   SLICK_METHODS_GO_TO = "slickGoTo",
-//   SLICK_METHODS_NEXT = "slickNext",
-//   SLICK_METHODS_PREV = "slickPrev",
-//   SLICK_METHODS_PAUSE = "slickPause",
-//   SLICK_METHODS_PLAY = "slickPlay",
-//   SLICK_METHODS_ADD = "slickAdd",
-//   SLICK_METHODS_REMOVE = "slickRemove",
-//   SLICK_METHODS_FILTER = "slickFilter",
-//   SLICK_METHODS_UNFILTER = "slickUnfilter",
-//   SLICK_METHODS_GET_OPTION = "slickGetOption",
-//   SLICK_METHODS_SET_OPTION = "slickSetOption",
-//   SLICK_METHODS_UNSLICK = "unslick",
-//   SLICK_METHODS_GET_SLICK = "getSlick",
-// }
-
-type DeepPartial<T> = {
-    [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
-};
-
-type SlickInstanceOptions = DeepPartial<{
-    accessibility: boolean;
-    adaptiveHeight: boolean;
-    autoplay: boolean;
-    autoplaySpeed: number;
-    arrows: boolean;
-    asNavFor: string | null;
-    appendArrows: JQuery<HTMLElement> | JQuery.Selector | JQuery.htmlString;
-    appendDots: JQuery<HTMLElement> | JQuery.Selector | JQuery.htmlString;
-    prevArrow: JQuery<HTMLElement> | JQuery.Selector;
-    nextArrow: JQuery<HTMLElement> | JQuery.Selector;
-    centerMode: boolean;
-    centerPadding: string;
-    cssEase: string;
-    customPaging: () => void;
-    dots: boolean;
-    dotsClass: string;
-    draggable: boolean;
-    fade: boolean;
-    focusOnSelect: boolean;
-    easing: string;
-    edgeFriction: number;
-    infinite: boolean;
-    initialSlide: number;
-    lazyLoad: "ondemand" | "progressive";
-    mobileFirst: boolean;
-    pauseOnFocus: boolean;
-    pauseOnHover: boolean;
-    pauseOnDotsHover: boolean;
-    respondTo: "window" | "slider" | "min";
-    responsive: SlickBreakpoint[];
-    rows: number;
-    slide: JQuery<HTMLElement>;
-    slidesPerRow: number;
-    slidesToShow: number;
-    slidesToScroll: number;
-    speed: number;
-    swipe: boolean;
-    swipeToSlide: boolean;
-    touchMove: boolean;
-    touchThreshold: number;
-    useCSS: boolean;
-    useTransform: boolean;
-    variableWidth: boolean;
-    vertical: boolean;
-    verticalSwiping: boolean;
-    rtl: boolean;
-    waitForAnimate: boolean;
-    zIndex: number;
-}>;
+type SlickInstanceOptions = ExtractPublicPropTypes<typeof carouselProps> 
 
 interface SlickBreakpoint {
-    breakpoint: number;
-    settings: SlickInstanceOptions | "unslick";
+  breakpoint: number;
+  settings: SlickInstanceOptions | "unslick";
 }
 
 type SlickDirection = "left" | "right" | "up" | "down" | "vertical";
 
-interface SlickEvents {
-    (
-        event: ListSlickEvents.SLICK_EVENTS_INIT,
-        cb: (event: JQuery.Event, slickInstance: SlickInstance) => void
-    ): SlickInstance;
-    (
-        event: ListSlickEvents.SLICK_EVENTS_REINIT,
-        cb: (event: JQuery.Event, slickInstance: SlickInstance) => void
-    ): SlickInstance;
-    (
-        event: ListSlickEvents.SLICK_EVENTS_DESTROY,
-        cb: (event: JQuery.Event, slickInstance: SlickInstance) => void
-    ): SlickInstance;
-    (
-        event: ListSlickEvents.SLICK_EVENTS_SET_POSITION,
-        cb: (event: JQuery.Event, slickInstance: SlickInstance) => void
-    ): SlickInstance;
-
-    (
-        event: ListSlickEvents.SLICK_EVENTS_AFTER_CHANGE,
-        cb: (event: JQuery.Event, slickInstance: SlickInstance) => void
-    ): SlickInstance;
-    (
-        event: ListSlickEvents.SLICK_EVENTS_BEFORE_CHANGE,
-        cb: (
-            event: JQuery.Event,
-            slickInstance: SlickInstance,
-            currentSlide: number,
-            nextSlide: number
-        ) => void
-    ): SlickInstance;
-
-    (
-        event: ListSlickEvents.SLICK_EVENTS_BREAKPOINT,
-        cb: (
-            event: JQuery.Event,
-            slickInstance: SlickInstance,
-            breakpoint: SlickBreakpoint
-        ) => void
-    ): SlickInstance;
-    (
-        event: ListSlickEvents.SLICK_EVENTS_EDGE,
-        cb: (
-            event: JQuery.Event,
-            slickInstance: SlickInstance,
-            direction: SlickDirection
-        ) => void
-    ): SlickInstance;
-    (
-        event: ListSlickEvents.SLICK_EVENTS_SWIPE,
-        cb: (
-            event: JQuery.Event,
-            slickInstance: SlickInstance,
-            direction: SlickDirection
-        ) => void
-    ): SlickInstance;
-    (
-        event: ListSlickEvents.SLICK_EVENTS_LAZY_LOADED,
-        cb: (
-            event: JQuery.Event,
-            slickInstance: SlickInstance,
-            image: JQuery<HTMLImageElement>,
-            imageSource: string
-        ) => void
-    ): SlickInstance;
-    (
-        event: ListSlickEvents.SLICK_EVENTS_LAZY_LOAD_ERROR,
-        cb: (
-            event: JQuery.Event,
-            slickInstance: SlickInstance,
-            image: JQuery<HTMLImageElement>,
-            imageSource: string
-        ) => void
-    ): SlickInstance;
+interface SlickMethods {
+  (method: ListSlickMethods.SLICK_METHODS_CURRENT_SLIDE): number;
+  (method: ListSlickMethods.SLICK_METHODS_NEXT): void;
+  (method: ListSlickMethods.SLICK_METHODS_PREV): void;
+  (method: ListSlickMethods.SLICK_METHODS_PAUSE): void;
+  (method: ListSlickMethods.SLICK_METHODS_PLAY): void;
+  (method: ListSlickMethods.SLICK_METHODS_GET_SLICK): SlickInstance;
+  (method: ListSlickMethods.SLICK_METHODS_UNSLICK): void;
+  (
+    method: ListSlickMethods.SLICK_METHODS_GO_TO,
+    slideNumber: number,
+    dotAnimate: boolean
+  ): void;
+  (
+    method: ListSlickMethods.SLICK_METHODS_ADD,
+    html: JQuery.Selector,
+    index: number | boolean,
+    addBefore: boolean
+  ): void;
+  (
+    method: ListSlickMethods.SLICK_METHODS_REMOVE,
+    index: number | boolean,
+    removeBefore: boolean,
+    removeAll: boolean
+  ): void;
+  (
+    method: ListSlickMethods.SLICK_METHODS_FILTER,
+    filter: JQuery.Selector
+  ): void;
+  (method: ListSlickMethods.SLICK_METHODS_UNFILTER, index: number): void;
+  (method: ListSlickMethods.SLICK_METHODS_GET_OPTION, option: string): void;
+  (
+    method: ListSlickMethods.SLICK_METHODS_SET_OPTION,
+    option: string,
+    value: string,
+    refresh: boolean
+  ): void;
 }
 
-interface SlickInstanceInitials {
+interface SlickEvents {
+  (
+    event: ListSlickEvents.SLICK_EVENTS_INIT,
+    cb: (event: JQuery.Event, slickInstance: SlickInstance) => void
+  ): SlickInstance;
+  (
+    event: ListSlickEvents.SLICK_EVENTS_REINIT,
+    cb: (event: JQuery.Event, slickInstance: SlickInstance) => void
+  ): SlickInstance;
+  (
+    event: ListSlickEvents.SLICK_EVENTS_DESTROY,
+    cb: (event: JQuery.Event, slickInstance: SlickInstance) => void
+  ): SlickInstance;
+  (
+    event: ListSlickEvents.SLICK_EVENTS_SET_POSITION,
+    cb: (event: JQuery.Event, slickInstance: SlickInstance) => void
+  ): SlickInstance;
+
+  (
+    event: ListSlickEvents.SLICK_EVENTS_AFTER_CHANGE,
+    cb: (event: JQuery.Event, slickInstance: SlickInstance) => void
+  ): SlickInstance;
+  (
+    event: ListSlickEvents.SLICK_EVENTS_BEFORE_CHANGE,
+    cb: (
+      event: JQuery.Event,
+      slickInstance: SlickInstance,
+      currentSlide: number,
+      nextSlide: number
+    ) => void
+  ): SlickInstance;
+
+  (
+    event: ListSlickEvents.SLICK_EVENTS_BREAKPOINT,
+    cb: (
+      event: JQuery.Event,
+      slickInstance: SlickInstance,
+      breakpoint: SlickBreakpoint
+    ) => void
+  ): SlickInstance;
+  (
+    event: ListSlickEvents.SLICK_EVENTS_EDGE,
+    cb: (
+      event: JQuery.Event,
+      slickInstance: SlickInstance,
+      direction: SlickDirection
+    ) => void
+  ): SlickInstance;
+  (
+    event: ListSlickEvents.SLICK_EVENTS_SWIPE,
+    cb: (
+      event: JQuery.Event,
+      slickInstance: SlickInstance,
+      direction: SlickDirection
+    ) => void
+  ): SlickInstance;
+  (
+    event: ListSlickEvents.SLICK_EVENTS_LAZY_LOADED,
+    cb: (
+      event: JQuery.Event,
+      slickInstance: SlickInstance,
+      image: JQuery<HTMLImageElement>,
+      imageSource: string
+    ) => void
+  ): SlickInstance;
+  (
+    event: ListSlickEvents.SLICK_EVENTS_LAZY_LOAD_ERROR,
+    cb: (
+      event: JQuery.Event,
+      slickInstance: SlickInstance,
+      image: JQuery<HTMLImageElement>,
+      imageSource: string
+    ) => void
+  ): SlickInstance;
+}
+
+
+interface SlickInstance extends SlickMethods {
+  on: SlickEvents;
+  readonly options: typeof carouselProps;
+  readonly defaults: SlickInstanceOptions;
+  readonly originalSettings: SlickInstanceOptions;
+  readonly initials: {
     /**
      * When there is an animation running.
      * Default: false
@@ -320,15 +312,15 @@ interface SlickInstanceInitials {
      * Object that contains properties relative to "touch" behavior.
      */
     touchObject: {
-        startX?: number | undefined;
-        startY?: number | undefined;
-        curX?: number | undefined;
-        curY?: number | undefined;
-        swipeLength?: number | undefined;
-        edgeHit?: boolean | undefined;
-        minSwipe?: number | undefined;
-        fingerCount?: number | undefined;
-        verticalSwiping?: boolean | undefined;
+      startX?: number | undefined;
+      startY?: number | undefined;
+      curX?: number | undefined;
+      curY?: number | undefined;
+      swipeLength?: number | undefined;
+      edgeHit?: boolean | undefined;
+      minSwipe?: number | undefined;
+      fingerCount?: number | undefined;
+      verticalSwiping?: boolean | undefined;
     };
 
     /**
@@ -340,197 +332,229 @@ interface SlickInstanceInitials {
      * Default: false
      */
     unslicked: boolean;
+  };
+
+  /**
+   * Default: null
+   */
+  activeBreakpoint: number | null;
+
+  /**
+   * Default: null
+   */
+  animType:
+    | "OTransform"
+    | "MozTransform"
+    | "webkitTransform"
+    | "msTransform"
+    | "transform"
+    | false
+    | null;
+
+  /**
+   * Default: null
+   */
+  animProp: null;
+
+  /**
+   * Default: []
+   */
+  breakpoints: number[];
+
+  /**
+   * Default: {}
+   */
+  breakpointSettings: { [breakpoint: number]: SlickInstanceOptions };
+
+  /**
+   * Default: false
+   */
+  cssTransitions: boolean;
+
+  /**
+   * Default: false
+   */
+  focussed: boolean;
+
+  /**
+   * Default: false
+   */
+  interrupted: boolean;
+
+  /**
+   * Default: 'hidden'
+   */
+  hidden: "mozHidden" | "webkitHidden" | "hidden";
+
+  /**
+   * Default: true
+   */
+  paused: boolean;
+
+  /**
+   * Default: null
+   */
+  positionProp: "top" | "left" | null;
+
+  /**
+   * Default: null
+   */
+  respondTo: "window" | "slider" | "min" | null;
+
+  /**
+   * Default: 1
+   */
+  rowCount: number;
+
+  /**
+   * Default: true
+   */
+  shouldClick: boolean;
+
+  /**
+   * Default: $(element)
+   */
+  $slider: JQuery;
+
+  /**
+   * Default: null
+   */
+  $slidesCache: JQuery | null;
+
+  /**
+   * Default: null
+   */
+  transformType:
+    | "-o-transform"
+    | "-moz-transform"
+    | "-webkit-transform"
+    | "-ms-transform"
+    | "transition"
+    | null;
+
+  /**
+   * Default: null
+   */
+  transitionType:
+    | "OTransition"
+    | "MozTransition"
+    | "webkitTransition"
+    | "msTransition"
+    | "transition"
+    | null;
+
+  /**
+   * Default: 'visibilitychange'
+   */
+  visibilityChange:
+    | "visibilitychange"
+    | "mozvisibilitychange"
+    | "webkitvisibilitychange";
+
+  /**
+   * Default: 0
+   */
+  windowWidth: number;
+
+  /**
+   * Default: null
+   */
+  windowTimer: number | null;
 }
 
-interface SlickInstance {
-    on: SlickEvents;
-    readonly options: SlickInstanceOptions;
-    readonly defaults: SlickInstanceOptions;
-    readonly originalSettings: SlickInstanceOptions;
-    readonly initials: SlickInstanceInitials;
-
-    /**
-     * Default: null
-     */
-    activeBreakpoint: number | null;
-
-    /**
-     * Default: null
-     */
-    animType: 'OTransform' | 'MozTransform' | 'webkitTransform' | 'msTransform' | 'transform' | false | null;
-
-    /**
-     * Default: null
-     */
-    animProp: null;
-
-    /**
-     * Default: []
-     */
-    breakpoints: number[];
-
-    /**
-     * Default: {}
-     */
-    breakpointSettings: { [breakpoint: number]: SlickInstanceOptions };
-
-    /**
-     * Default: false
-     */
-    cssTransitions: boolean;
-
-    /**
-     * Default: false
-     */
-    focussed: boolean;
-
-    /**
-     * Default: false
-     */
-    interrupted: boolean;
-
-    /**
-     * Default: 'hidden'
-     */
-    hidden: 'mozHidden' | 'webkitHidden' | 'hidden';
-
-    /**
-     * Default: true
-     */
-    paused: boolean;
-
-    /**
-     * Default: null
-     */
-    positionProp: 'top' | 'left' | null;
-
-    /**
-     * Default: null
-     */
-    respondTo: 'window' | 'slider' | 'min' | null;
-
-    /**
-     * Default: 1
-     */
-    rowCount: number;
-
-    /**
-     * Default: true
-     */
-    shouldClick: boolean;
-
-    /**
-     * Default: $(element)
-     */
-    $slider: JQuery;
-
-    /**
-     * Default: null
-     */
-    $slidesCache: JQuery | null;
-
-    /**
-     * Default: null
-     */
-    transformType: '-o-transform' | '-moz-transform' | '-webkit-transform' | '-ms-transform' | 'transition' | null;
-
-    /**
-     * Default: null
-     */
-    transitionType: 'OTransition' | 'MozTransition' | 'webkitTransition' | 'msTransition' | 'transition' | null;
-
-    /**
-     * Default: 'visibilitychange'
-     */
-    visibilityChange: 'visibilitychange' | 'mozvisibilitychange' | 'webkitvisibilitychange';
-
-    /**
-     * Default: 0
-     */
-    windowWidth: number;
-
-    /**
-     * Default: null
-     */
-    windowTimer: number | null;
-}
-
-const props = defineProps(carouselProps);
-const emits = defineEmits<{
+  const props = defineProps(carouselProps);
+  const emits = defineEmits<{
     (
-        emit: ListSlickEvents.SLICK_EVENTS_INIT,
-        event: JQuery.Event, slickInstance: SlickInstance
+      emit: ListSlickEvents.SLICK_EVENTS_INIT,
+      event: JQuery.Event,
+      slickInstance: SlickInstance
     ): void;
     (
-        emit: ListSlickEvents.SLICK_EVENTS_REINIT,
-        event: JQuery.Event, slickInstance: SlickInstance
+      emit: ListSlickEvents.SLICK_EVENTS_REINIT,
+      event: JQuery.Event,
+      slickInstance: SlickInstance
     ): void;
     (
-        emit: ListSlickEvents.SLICK_EVENTS_DESTROY,
-        event: JQuery.Event, slickInstance: SlickInstance
+      emit: ListSlickEvents.SLICK_EVENTS_DESTROY,
+      event: JQuery.Event,
+      slickInstance: SlickInstance
     ): void;
     (
-        emit: ListSlickEvents.SLICK_EVENTS_SET_POSITION,
-        event: JQuery.Event, slickInstance: SlickInstance
+      emit: ListSlickEvents.SLICK_EVENTS_SET_POSITION,
+      event: JQuery.Event,
+      slickInstance: SlickInstance
     ): void;
 
     (
-        emit: ListSlickEvents.SLICK_EVENTS_AFTER_CHANGE,
-        event: JQuery.Event, slickInstance: SlickInstance
+      emit: ListSlickEvents.SLICK_EVENTS_AFTER_CHANGE,
+      event: JQuery.Event,
+      slickInstance: SlickInstance
     ): void;
     (
-        emit: ListSlickEvents.SLICK_EVENTS_BEFORE_CHANGE,
-        event: JQuery.Event,
-        slickInstance: SlickInstance,
-        currentSlide: number,
-        nextSlide: number
+      emit: ListSlickEvents.SLICK_EVENTS_BEFORE_CHANGE,
+      event: JQuery.Event,
+      slickInstance: SlickInstance,
+      currentSlide: number,
+      nextSlide: number
     ): void;
 
     (
-        emit: ListSlickEvents.SLICK_EVENTS_BREAKPOINT,
-        event: JQuery.Event,
-        slickInstance: SlickInstance,
-        breakpoint: SlickBreakpoint
+      emit: ListSlickEvents.SLICK_EVENTS_BREAKPOINT,
+      event: JQuery.Event,
+      slickInstance: SlickInstance,
+      breakpoint: SlickBreakpoint
     ): void;
     (
-        emit: ListSlickEvents.SLICK_EVENTS_EDGE,
-        event: JQuery.Event,
-        slickInstance: SlickInstance,
-        direction: SlickDirection
+      emit: ListSlickEvents.SLICK_EVENTS_EDGE,
+      event: JQuery.Event,
+      slickInstance: SlickInstance,
+      direction: SlickDirection
     ): void;
     (
-        emit: ListSlickEvents.SLICK_EVENTS_SWIPE,
-        event: JQuery.Event,
-        slickInstance: SlickInstance,
-        direction: SlickDirection
+      emit: ListSlickEvents.SLICK_EVENTS_SWIPE,
+      event: JQuery.Event,
+      slickInstance: SlickInstance,
+      direction: SlickDirection
     ): void;
 
     (
-        emit: ListSlickEvents.SLICK_EVENTS_LAZY_LOADED,
-        event: JQuery.Event,
-        slickInstance: SlickInstance,
-        image: JQuery<HTMLImageElement>,
-        imageSource: string
+      emit: ListSlickEvents.SLICK_EVENTS_LAZY_LOADED,
+      event: JQuery.Event,
+      slickInstance: SlickInstance,
+      image: JQuery<HTMLImageElement>,
+      imageSource: string
     ): void;
 
     (
-        emit: ListSlickEvents.SLICK_EVENTS_LAZY_LOAD_ERROR,
-        event: JQuery.Event,
-        slickInstance: SlickInstance,
-        image: JQuery<HTMLImageElement>,
-        imageSource: string
+      emit: ListSlickEvents.SLICK_EVENTS_LAZY_LOAD_ERROR,
+      event: JQuery.Event,
+      slickInstance: SlickInstance,
+      image: JQuery<HTMLImageElement>,
+      imageSource: string
     ): void;
-}>();
+  }>();
 
-onMounted(() => {
-    const $slick: SlickInstance = $(`.vue-slick__carousel`).slick(props)
+  const $slick = ref<SlickInstance | null>(null)
+
+  defineExpose({
+    [ListSlickMethods.SLICK_METHODS_CURRENT_SLIDE](){
+        return ($slick.value as SlickInstance)(ListSlickMethods.SLICK_METHODS_CURRENT_SLIDE)
+    },
+
+    [ListSlickMethods.SLICK_METHODS_NEXT](){
+        ($slick.value as SlickInstance)(ListSlickMethods.SLICK_METHODS_NEXT)
+    },
+  });
+
+  onMounted(() => {
+    $slick.value = $(`.vue-slick__carousel`).slick(props);
 
     for (const key in ListSlickEvents) {
-        const event = ListSlickEvents[key]
+      const event = ListSlickEvents[key];
 
-        $slick.on(event, (...args) => {
-            emits(event, ...args)
-        })
+      ($slick.value as SlickInstance).on(event, (...args) => {
+        emits(event, ...args);
+      });
     }
-});
+  });
 </script>

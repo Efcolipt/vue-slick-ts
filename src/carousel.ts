@@ -1,400 +1,455 @@
-import type { PropType } from "vue";
+import { ExtractPublicPropTypes } from "vue";
+import { carouselProps } from "./carousel.props";
 
-export const carouselProps = {
+export enum ListSlickEvents {
+  SLICK_EVENTS_INIT = "init",
+  SLICK_EVENTS_REINIT = "reInit",
+  SLICK_EVENTS_DESTROY = "destroy",
+  SLICK_EVENTS_SET_POSITION = "setPosition",
+  SLICK_EVENTS_AFTER_CHANGE = "afterChange",
+  SLICK_EVENTS_BEFORE_CHANGE = "beforeChange",
+  SLICK_EVENTS_BREAKPOINT = "breakpoint",
+  SLICK_EVENTS_EDGE = "edge",
+  SLICK_EVENTS_SWIPE = "swipe",
+  SLICK_EVENTS_LAZY_LOADED = "lazyLoaded",
+  SLICK_EVENTS_LAZY_LOAD_ERROR = "lazyLoadError",
+}
+
+export enum ListSlickMethods {
+  SLICK_METHODS_CURRENT_SLIDE = "slickCurrentSlide",
+  SLICK_METHODS_GO_TO = "slickGoTo",
+  SLICK_METHODS_NEXT = "slickNext",
+  SLICK_METHODS_PREV = "slickPrev",
+  SLICK_METHODS_PAUSE = "slickPause",
+  SLICK_METHODS_PLAY = "slickPlay",
+  SLICK_METHODS_ADD = "slickAdd",
+  SLICK_METHODS_REMOVE = "slickRemove",
+  SLICK_METHODS_FILTER = "slickFilter",
+  SLICK_METHODS_UNFILTER = "slickUnfilter",
+  SLICK_METHODS_GET_OPTION = "slickGetOption",
+  SLICK_METHODS_SET_OPTION = "slickSetOption",
+  SLICK_METHODS_UNSLICK = "unslick",
+  SLICK_METHODS_GET_SLICK = "getSlick",
+}
+
+export type SlickInstanceOptions = ExtractPublicPropTypes<typeof carouselProps>;
+
+export interface SlickBreakpoint {
+  breakpoint: number;
+  settings: SlickInstanceOptions | "unslick";
+}
+
+export type SlickDirection = "left" | "right" | "up" | "down" | "vertical";
+
+export interface SlickMethods {
+  (method: ListSlickMethods.SLICK_METHODS_CURRENT_SLIDE): number;
+  (method: ListSlickMethods.SLICK_METHODS_NEXT): void;
+  (method: ListSlickMethods.SLICK_METHODS_PREV): void;
+  (method: ListSlickMethods.SLICK_METHODS_PAUSE): void;
+  (method: ListSlickMethods.SLICK_METHODS_PLAY): void;
+  (method: ListSlickMethods.SLICK_METHODS_GET_SLICK): SlickInstance;
+  (
+    method: ListSlickMethods.SLICK_METHODS_UNSLICK,
+    fromBreakpoint: number
+  ): void;
+  (
+    method: ListSlickMethods.SLICK_METHODS_GO_TO,
+    slideNumber: number,
+    dotAnimate: boolean
+  ): void;
+  (
+    method: ListSlickMethods.SLICK_METHODS_ADD,
+    html: JQuery.Selector,
+    index: number | boolean,
+    addBefore: boolean
+  ): void;
+  (
+    method: ListSlickMethods.SLICK_METHODS_REMOVE,
+    index: number | boolean,
+    removeBefore: boolean,
+    removeAll: boolean
+  ): void;
+  (
+    method: ListSlickMethods.SLICK_METHODS_FILTER,
+    filter: JQuery.Selector
+  ): void;
+  (method: ListSlickMethods.SLICK_METHODS_UNFILTER, index: number): void;
+  (method: ListSlickMethods.SLICK_METHODS_GET_OPTION, option: string): void;
+  (
+    method: ListSlickMethods.SLICK_METHODS_SET_OPTION,
+    option: string,
+    value: string,
+    refresh: boolean
+  ): void;
+}
+
+export interface SlickEvents {
+  (
+    event: ListSlickEvents.SLICK_EVENTS_INIT,
+    cb: (event: JQuery.Event, slickInstance: SlickInstance) => void
+  ): SlickInstance;
+  (
+    event: ListSlickEvents.SLICK_EVENTS_REINIT,
+    cb: (event: JQuery.Event, slickInstance: SlickInstance) => void
+  ): SlickInstance;
+  (
+    event: ListSlickEvents.SLICK_EVENTS_DESTROY,
+    cb: (event: JQuery.Event, slickInstance: SlickInstance) => void
+  ): SlickInstance;
+  (
+    event: ListSlickEvents.SLICK_EVENTS_SET_POSITION,
+    cb: (event: JQuery.Event, slickInstance: SlickInstance) => void
+  ): SlickInstance;
+
+  (
+    event: ListSlickEvents.SLICK_EVENTS_AFTER_CHANGE,
+    cb: (event: JQuery.Event, slickInstance: SlickInstance) => void
+  ): SlickInstance;
+  (
+    event: ListSlickEvents.SLICK_EVENTS_BEFORE_CHANGE,
+    cb: (
+      event: JQuery.Event,
+      slickInstance: SlickInstance,
+      currentSlide: number,
+      nextSlide: number
+    ) => void
+  ): SlickInstance;
+
+  (
+    event: ListSlickEvents.SLICK_EVENTS_BREAKPOINT,
+    cb: (
+      event: JQuery.Event,
+      slickInstance: SlickInstance,
+      breakpoint: SlickBreakpoint
+    ) => void
+  ): SlickInstance;
+  (
+    event: ListSlickEvents.SLICK_EVENTS_EDGE,
+    cb: (
+      event: JQuery.Event,
+      slickInstance: SlickInstance,
+      direction: SlickDirection
+    ) => void
+  ): SlickInstance;
+  (
+    event: ListSlickEvents.SLICK_EVENTS_SWIPE,
+    cb: (
+      event: JQuery.Event,
+      slickInstance: SlickInstance,
+      direction: SlickDirection
+    ) => void
+  ): SlickInstance;
+  (
+    event: ListSlickEvents.SLICK_EVENTS_LAZY_LOADED,
+    cb: (
+      event: JQuery.Event,
+      slickInstance: SlickInstance,
+      image: JQuery<HTMLImageElement>,
+      imageSource: string
+    ) => void
+  ): SlickInstance;
+  (
+    event: ListSlickEvents.SLICK_EVENTS_LAZY_LOAD_ERROR,
+    cb: (
+      event: JQuery.Event,
+      slickInstance: SlickInstance,
+      image: JQuery<HTMLImageElement>,
+      imageSource: string
+    ) => void
+  ): SlickInstance;
+}
+
+export interface SlickInstance extends SlickMethods {
+  on: SlickEvents;
+  readonly options: typeof carouselProps;
+  readonly defaults: SlickInstanceOptions;
+  readonly originalSettings: SlickInstanceOptions;
+  readonly initials: {
+    /**
+     * When there is an animation running.
+     * Default: false
+     */
+    animating: boolean;
+
+    /**
+     * When they user is dragging a slide.
+     * Default: false
+     */
+    dragging: boolean;
+
+    /**
+     * Internal `setInterval` identifier.
+     * Default: null
+     */
+    autoPlayTimer: number | null;
+
+    /**
+     * The current direction (`0` for left and down, `1` for right and up).
+     * Default: 0
+     */
+    currentDirection: number;
+
+    /**
+     * Default: null
+     */
+    currentLeft: number | null;
+
+    /**
+     * The index of the current slide.
+     * Default: 0
+     */
+    currentSlide: number;
+
+    /**
+     * The direction (`0` for left and down, `1` for right and up).
+     * Default: null
+     */
+    direction: number;
+
+    /**
+     * jQuery instance that contains the "dots".
+     * Default: null
+     */
+    $dots: JQuery | null;
+
+    /**
+     * The list's width in pixels.
+     * Default: null
+     */
+    listWidth: number | null;
+
+    /**
+     * The list's height in pixels.
+     * Default: null
+     */
+    listHeight: number | null;
+
+    /**
+     * (actually it's not used in Slick, so I don't know what it is...)
+     * Default: 0
+     */
+    loadIndex: number;
+
+    /**
+     * jQuery instance that contains the "next arrow".
+     * Default: null
+     */
+    $nextArrow: JQuery | null;
+
+    /**
+     * jQuery instance that contains the "prev arrow".
+     * Default: null
+     */
+    $prevArrow: JQuery | null;
+
+    /**
+     * When they user is scrolling a slide.
+     * Default: false
+     */
+    scrolling: boolean;
+
+    /**
+     * The number of slides.
+     * Default: null
+     */
+    slideCount: number | null;
+
+    /**
+     * The slide's width in pixels.
+     * Default: null
+     */
+    slideWidth: number | null;
+
+    /**
+     * jQuery instance that contains the "slide track".
+     * Default: null
+     */
+    $slideTrack: JQuery | null;
+
+    /**
+     * jQuery instance that contains the "slides".
+     * Default: null
+     */
+    $slides: JQuery | null;
+
+    /**
+     * When the slider is sliding.
+     * Default: false
+     */
+    sliding: boolean;
+
+    /**
+     * Slide offset in pixels.
+     * Default: 0
+     */
+    slideOffset: number;
+
+    /**
+     * Default: null
+     */
+    swipeLeft: number | null;
+
+    /**
+     * Default: false
+     */
+    swiping: boolean;
+
+    /**
+     * jQuery instance that contains the "list".
+     * Default: null
+     */
+    $list: null;
+
+    /**
+     * Object that contains properties relative to "touch" behavior.
+     */
+    touchObject: {
+      startX?: number | undefined;
+      startY?: number | undefined;
+      curX?: number | undefined;
+      curY?: number | undefined;
+      swipeLength?: number | undefined;
+      edgeHit?: boolean | undefined;
+      minSwipe?: number | undefined;
+      fingerCount?: number | undefined;
+      verticalSwiping?: boolean | undefined;
+    };
+
+    /**
+     * Default: false
+     */
+    transformsEnabled: boolean;
+
+    /**
+     * Default: false
+     */
+    unslicked: boolean;
+  };
+
   /**
-   * @description Enables tabbing and arrow key navigation
-   * @default true
+   * Default: null
    */
-  accessibility: {
-    type: Boolean as PropType<boolean>,
-    default: true,
-  },
+  activeBreakpoint: number | null;
+
   /**
-   * @description Enables adaptive height for single slide horizontal carousels.
-   * @default false
+   * Default: null
    */
-  adaptiveHeight: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
+  animType:
+    | "OTransform"
+    | "MozTransform"
+    | "webkitTransform"
+    | "msTransform"
+    | "transform"
+    | false
+    | null;
+
   /**
-   * @description Enables Autoplay
-   * @default false
+   * Default: null
    */
-  autoplay: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
+  animProp: null;
+
   /**
-   * @description Autoplay Speed in milliseconds
-   * @default 3000
+   * Default: []
    */
-  autoplaySpeed: {
-    type: Number as PropType<number>,
-    default: 3000,
-  },
+  breakpoints: number[];
+
   /**
-   * @description Enable Prev/Next Arrows
-   * @default true
+   * Default: {}
    */
-  arrows: {
-    type: Boolean as PropType<boolean>,
-    default: true,
-  },
+  breakpointSettings: { [breakpoint: number]: SlickInstanceOptions };
+
   /**
-   * @description Set the slider to be the navigation of other slider
-   * @default null
+   * Default: false
    */
-  asNavFor: {
-    type: [Object, String] as PropType<Element | JQuery | string>,
-    default: null,
-  },
-  // /**
-  //  * @description  Change where the navigation arrows are attached (Selector, htmlString, Array, Element, jQuery object)
-  //  * `false` will prevent arrows from being created/appended
-  //  * @default $(element)
-  //  */
-  // appendArrows: {
-  //   type: [Object, Array, String, Boolean] as PropType<
-  //     Element | Element[] | JQuery | string | boolean
-  //   >,
-  //   default: null,
-  // },
-  // /**
-  //  * @description Change where the navigation dots are attached (Selector, htmlString, Array, Element, jQuery object)
-  //  * @default $(element)
-  //  */
-  // appendDots: {
-  //   type: [String] as PropType<Element | Element[] | JQuery | string>,
-  //   default: "null",
-  // },
+  cssTransitions: boolean;
+
   /**
-   * @description Allows you to select a node or customize the HTML for the "Previous" arrow.
-   * @default '<button type="button" class="slick-prev">Previous</button>
+   * Default: false
    */
-  prevArrow: {
-    type: [Object, String] as PropType<Element | JQuery | string>,
-    default: '<button type="button" class="slick-prev">Previous</button>',
-  },
+  focussed: boolean;
+
   /**
-   * @description Allows you to select a node or customize the HTML for the "Next" arrow.
-   * @default '<button type="button" class="slick-next">Next</button>'
+   * Default: false
    */
-  nextArrow: {
-    type: [Object, String] as PropType<Element | JQuery | string>,
-    default: '<button type="button" class="slick-next">Next</button>',
-  },
+  interrupted: boolean;
+
   /**
-   * @description Enables centered view with partial prev/next slides. Use with odd numbered slidesToShow counts.
-   * @default false
+   * Default: 'hidden'
    */
-  centerMode: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
+  hidden: "mozHidden" | "webkitHidden" | "hidden";
+
   /**
-   * @description Side padding when in center mode (px or %)
-   * @default '50px'
+   * Default: true
    */
-  centerPadding: {
-    type: String as PropType<string>,
-    default: "50px",
-    validator(val: string) {
-      return /px|%/.test(val);
-    },
-  },
+  paused: boolean;
+
   /**
-   * @description CSS3 Animation Easing
-   * @default 'ease'
+   * Default: null
    */
-  cssEase: {
-    type: String as PropType<string>,
-    default: "ease",
-  },
+  positionProp: "top" | "left" | null;
+
   /**
-   * @description Custom paging templates. See source for use example.
-   * @default n/a
+   * Default: null
    */
-  customPaging: {
-    type: Function as PropType<(slider: any, i: number) => string>,
-    default: () => void 0,
-  },
+  respondTo: "window" | "slider" | "min" | null;
+
   /**
-   * @description Show dot indicators
-   * @default false
+   * Default: 1
    */
-  dots: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
+  rowCount: number;
+
   /**
-   * @description Class for slide indicator dots container
-   * @default 'slick-dots'
+   * Default: true
    */
-  dotsClass: {
-    type: String as PropType<string>,
-    default: "slick-dots",
-  },
+  shouldClick: boolean;
+
   /**
-   * @description Enable mouse dragging
-   * @default false
+   * Default: $(element)
    */
-  draggable: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
+  $slider: JQuery;
+
   /**
-   * @description Enable fade
-   * @default false
+   * Default: null
    */
-  fade: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
+  $slidesCache: JQuery | null;
+
   /**
-   * @description Enable focus on selected element (click)
-   * @default false
+   * Default: null
    */
-  focusOnSelect: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
+  transformType:
+    | "-o-transform"
+    | "-moz-transform"
+    | "-webkit-transform"
+    | "-ms-transform"
+    | "transition"
+    | null;
+
   /**
-   * @description Add easing for jQuery animate. Use with easing libraries or default easing methods
-   * @default 'linear'
+   * Default: null
    */
-  easing: {
-    type: String as PropType<string>,
-    default: "linear",
-  },
+  transitionType:
+    | "OTransition"
+    | "MozTransition"
+    | "webkitTransition"
+    | "msTransition"
+    | "transition"
+    | null;
+
   /**
-   * @description Resistance when swiping edges of non-infinite carousels
-   * @default 0.15
+   * Default: 'visibilitychange'
    */
-  edgeFriction: {
-    type: Number as PropType<number>,
-    default: 0.15,
-  },
+  visibilityChange:
+    | "visibilitychange"
+    | "mozvisibilitychange"
+    | "webkitvisibilitychange";
+
   /**
-   * @description Infinite loop sliding
-   * @default true
+   * Default: 0
    */
-  infinite: {
-    type: Boolean as PropType<boolean>,
-    default: true,
-  },
+  windowWidth: number;
+
   /**
-   * @description Slide to start on
-   * @default 0
+   * Default: null
    */
-  initialSlide: {
-    type: Number as PropType<number>,
-    default: 0,
-  },
-  /**
-   * @description Set lazy loading technique. Accepts 'ondemand' or 'progressive'
-   * @default 'ondemand'
-   */
-  lazyLoad: {
-    type: String as PropType<string>,
-    default: "ondemand",
-    validator(val: string) {
-      return ["ondemand", "progressive"].includes(val);
-    },
-  },
-  /**
-   * @description Responsive settings use mobile first calculation
-   * @default false
-   */
-  mobileFirst: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
-  /**
-   * @description Pause Autoplay On Focus
-   * @default true
-   */
-  pauseOnFocus: {
-    type: Boolean as PropType<boolean>,
-    default: true,
-  },
-  /**
-   * @description Pause Autoplay On Hover
-   * @default false
-   */
-  pauseOnHover: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
-  /**
-   * @description Pause Autoplay when a dot is hovered
-   * @default false
-   */
-  pauseOnDotsHover: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
-  /**
-   * @description Width that responsive object responds to. Can be 'window', 'slider' or 'min' (the smaller of the two)
-   * @default 'window'
-   */
-  respondTo: {
-    type: String as PropType<string>,
-    default: "window",
-    validator(val: string) {
-      return ["window", "slider", "min"].includes(val);
-    },
-  },
-  /**
-   * @description Object containing breakpoints and settings objects (see demo). Enables settings sets at given screen width. Set settings to "unslick" instead of an object to disable slick at a given breakpoint.
-   * @default null
-   */
-  responsive: {
-    type: [Object] as PropType<object>,
-    default: null,
-  },
-  /**
-   * @description Setting this to more than 1 initializes grid mode. Use slidesPerRow to set how many slides should be in each row.
-   * @default 1
-   */
-  rows: {
-    type: Number as PropType<number>,
-    default: 1,
-  },
-  /**
-   * @description Element query to use as slide
-   * @default ''
-   */
-  slide: {
-    type: [String, Object] as PropType<JQuery<HTMLElement> | string>,
-    default: "",
-  },
-  /**
-   * @description With grid mode intialized via the rows option, this sets how many slides are in each grid row. dver
-   * @default 1
-   */
-  slidesPerRow: {
-    type: Number as PropType<number>,
-    default: 1,
-  },
-  /**
-   * @description # of slides to show
-   * @default 1
-   */
-  slidesToShow: {
-    type: Number as PropType<number>,
-    default: 1,
-  },
-  /**
-   * @description # of slides to scroll
-   * @default 1
-   */
-  slidesToScroll: {
-    type: Number as PropType<number>,
-    default: 1,
-  },
-  /**
-   * @description Slide/Fade animation speed
-   * @default 300
-   */
-  speed: {
-    type: Number as PropType<number>,
-    default: 300,
-  },
-  /**
-   * @description Enable swiping
-   * @default true
-   */
-  swipe: {
-    type: Boolean as PropType<boolean>,
-    default: true,
-  },
-  /**
-   * @description Allow users to drag or swipe directly to a slide irrespective of slidesToScroll
-   * @default false
-   */
-  swipeToSlide: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
-  /**
-   * @description Enable slide motion with touch
-   * @default true
-   */
-  touchMove: {
-    type: Boolean as PropType<boolean>,
-    default: true,
-  },
-  /**
-   * @description To advance slides, the user must swipe a length of (1/touchThreshold) * the width of the slider
-   * @default 5
-   */
-  touchThreshold: {
-    type: Number as PropType<number>,
-    default: 5,
-  },
-  /**
-   * @description Enable/Disable CSS Transitions
-   * @default true
-   */
-  useCSS: {
-    type: Boolean as PropType<boolean>,
-    default: true,
-  },
-  /**
-   * @description Enable/Disable CSS Transforms
-   * @default true
-   */
-  useTransform: {
-    type: Boolean as PropType<boolean>,
-    default: true,
-  },
-  /**
-   * @description Variable width slides
-   * @default false
-   */
-  variableWidth: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
-  /**
-   * @description Vertical slide mode
-   * @default false
-   */
-  vertical: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
-  /**
-   * @description Vertical swipe mode
-   * @default false
-   */
-  verticalSwiping: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
-  /**
-   * @description Change the slider's direction to become right-to-left
-   * @default false
-   */
-  rtl: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
-  /**
-   * @description Ignores requests to advance the slide while animating
-   * @default true
-   */
-  waitForAnimate: {
-    type: Boolean as PropType<boolean>,
-    default: true,
-  },
-  /**
-   * @description Set the zIndex values for slides, useful for IE9 and lower
-   * @default 1000
-   */
-  zIndex: {
-    type: Number as PropType<number>,
-    default: 1000,
-  },
-} as const;
+  windowTimer: number | null;
+}

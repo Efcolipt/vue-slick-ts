@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.1](https://github.com/Efcolipt/vue-slick-ts/compare/0.8.0...0.8.1) (2023-06-10)
+
+
+### Bug Fixes
+
+* export types carousel ([e97801b](https://github.com/Efcolipt/vue-slick-ts/commit/e97801be9cb6c5853523960fa935236e38a3985b))
+
 # [0.8.0](https://github.com/Efcolipt/vue-slick-ts/compare/0.7.6...0.8.0) (2023-06-10)
 
 

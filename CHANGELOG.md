@@ -1,21 +1,6 @@
 # Changelog
 
-# [0.7.0](https://github.com/Efcolipt/vue-slick-ts/compare/0.6.0...0.7.0) (2023-06-10)
-
-
-### Bug Fixes
-
-* methods ([e1618ba](https://github.com/Efcolipt/vue-slick-ts/commit/e1618ba73eda6f80e74874764c5fd701a7dd1b29))
-
-
-### Features
-
-* add support full methods for carousel ([a484c6b](https://github.com/Efcolipt/vue-slick-ts/commit/a484c6bcd29642fb3cd31bf2ca433b4e66fcac38))
-* fix events args rest ([2ab8f99](https://github.com/Efcolipt/vue-slick-ts/commit/2ab8f99029c42947d830206c2c3212faea9f229f))
-* fix types ([7d1d7bb](https://github.com/Efcolipt/vue-slick-ts/commit/7d1d7bba0bf08ef9e7a73d428bbd95ed03cd524e))
-
 # [0.6.0](https://github.com/Efcolipt/vue-slick-ts/compare/0.5.0...0.6.0) (2023-06-08)
-
 
 ### Features
 

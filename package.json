@@ -18,9 +18,12 @@
     },
     "./dist/css/style.css": "./dist/css/style.css",
     "./dist/css/style-theme.css": "./dist/css/style-theme.css",
-    "./dist/**/*": "./dist/**/*",
+    "./dist/*": "./dist/*",
     "./package.json": "./package.json"
   },
+  "sideEffects": [
+    "*.css"
+  ],
   "engines": {
     "node": ">=14.19.3"
   },

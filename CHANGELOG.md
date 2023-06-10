@@ -1,5 +1,7 @@
 # Changelog
 
+## [0.8.4](https://github.com/Efcolipt/vue-slick-ts/compare/0.8.3...0.8.4) (2023-06-10)
+
 ## [0.8.3](https://github.com/Efcolipt/vue-slick-ts/compare/0.8.2...0.8.3) (2023-06-10)
 
 ## [0.8.2](https://github.com/Efcolipt/vue-slick-ts/compare/0.8.1...0.8.2) (2023-06-10)

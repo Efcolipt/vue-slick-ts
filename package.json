@@ -16,9 +16,9 @@
       "import": "./dist/vue-slick-ts.es.js",
       "default": "./dist/vue-slick-ts.es.js"
     },
-    "./dist/css/style.css": "./dist/css/style.css",
-    "./dist/css/style-theme.css": "./dist/css/style-theme.css",
     "./dist/*": "./dist/*",
+    "./dist/style.css": "./dist/css/style.css",
+    "./dist/style-theme.css": "./dist/css/style-theme.css",
     "./package.json": "./package.json"
   },
   "sideEffects": [

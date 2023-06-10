@@ -1,12 +1,19 @@
-<p align="center">Vue/Nuxt slick with Typescript</p>
+<h1 align="center">Vue/Nuxt slick with Typescript</h1>
 
 <p align="center">
-[![npm version](https://img.shields.io/npm/v/vue-slick-ts.svg?style=flat-square)](http://badge.fury.io/js/vue-slick-ts)
-[![quality](https://packagequality.com/shield/vue-slick-ts.svg)](https://packagequality.com/#?package=vue-slick-ts)
-[![downloads](https://img.shields.io/npm/dm/vue-slick-ts.svg?style=flat-square)](http://badge.fury.io/js/vue-slick-ts)
-[![npm license](https://img.shields.io/npm/l/vue-slick-ts.svg?style=flat-square)](http://badge.fury.io/js/vue-slick-ts)
+  <a href="https://github.com/efcolipt/vue-slick-ts">
+   <img src="https://img.shields.io/npm/v/vue-slick-ts.svg?style=flat-square" alt="">
+  </a>
+    <a href="https://github.com/efcolipt/vue-slick-ts">
+   <img src="https://packagequality.com/shield/vue-slick-ts.svg" alt="">
+  </a>
+    <a href="https://github.com/efcolipt/vue-slick-ts">
+   <img src="https://img.shields.io/npm/dm/vue-slick-ts.svg?style=flat-square" alt="">
+  </a>
+    <a href="https://github.com/efcolipt/vue-slick-ts">
+   <img src="https://img.shields.io/npm/l/vue-slick-ts.svg?style=flat-square" alt="">
+  </a>
 </p>
-
 
 ## Support
 
@@ -46,30 +53,26 @@ yarn add vue-slick-ts
 
 ```vue
 <script setup lang="ts">
-import {ref,onMounted } from 'vue'
-import { ListSlickMethods, VueSlickCarousel } from 'vue-slick-ts'
-import type { SlickInstance } from 'vue-slick-ts'
-import 'vue-slick-ts/dist/css/slick.css'
+  import { ref, onMounted } from "vue";
+  import { ListSlickMethods, VueSlickCarousel } from "vue-slick-ts";
+  import type { SlickInstance } from "vue-slick-ts";
+  import "vue-slick-ts/dist/css/slick.css";
 
-const carousel = ref<SlickInstance | null>(null)
+  const carousel = ref<SlickInstance | null>(null);
 
-const handleInit = (e: JQuery.Event, instance: SlickInstance)  => {
-  console.log(e, instance);
-}
+  const handleInit = (e: JQuery.Event, instance: SlickInstance) => {
+    console.log(e, instance);
+  };
 
-onMounted(() => {
-  carousel.value!(ListSlickMethods.SLICK_METHODS_PLAY)
-})
+  onMounted(() => {
+    carousel.value!(ListSlickMethods.SLICK_METHODS_PLAY);
+  });
 </script>
 
 <template>
   <VueSlickCarousel ref="carousel" @init="handleInit" :autoplay-speed="4000">
-    <div>
-      Test 1
-    </div>
-    <div>
-      Test 2
-    </div>
+    <div>Test 1</div>
+    <div>Test 2</div>
   </VueSlickCarousel>
 </template>
 ```

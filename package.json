@@ -28,6 +28,10 @@
   "engines": {
     "node": ">=14.19.3"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "author": "Baykov Ivan <efcolipt@gmail.com> (https://github.com/Efcolipt/)",
   "description": "Vue/Nuxt component for slick-carousel with full Typescript",
   "copyright": "Copyright © 2023-present Efcolipt",
@@ -90,6 +94,9 @@
   "release-it": {
     "git": {
       "commitMessage": "chore(release): v${version}"
+    },
+    "npm": {
+      "publish": false
     },
     "github": {
       "release": true,

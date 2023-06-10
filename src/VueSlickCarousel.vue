@@ -57,7 +57,10 @@
     (method: ListSlickMethods.SLICK_METHODS_PAUSE): void;
     (method: ListSlickMethods.SLICK_METHODS_PLAY): void;
     (method: ListSlickMethods.SLICK_METHODS_GET_SLICK): SlickInstance;
-    (method: ListSlickMethods.SLICK_METHODS_UNSLICK, fromBreakpoint: number): void;
+    (
+      method: ListSlickMethods.SLICK_METHODS_UNSLICK,
+      fromBreakpoint: number
+    ): void;
     (
       method: ListSlickMethods.SLICK_METHODS_GO_TO,
       slideNumber: number,
@@ -564,7 +567,10 @@
     },
 
     [ListSlickMethods.SLICK_METHODS_UNSLICK](fromBreakpoint: number) {
-      ($slick.value as SlickInstance)(ListSlickMethods.SLICK_METHODS_UNSLICK, fromBreakpoint);
+      ($slick.value as SlickInstance)(
+        ListSlickMethods.SLICK_METHODS_UNSLICK,
+        fromBreakpoint
+      );
     },
 
     [ListSlickMethods.SLICK_METHODS_GO_TO](
@@ -640,8 +646,8 @@
   });
 
   onMounted(() => {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     $slick.value = $(`.vue-slick__carousel`).slick(props);
 
     for (const key in ListSlickEvents) {

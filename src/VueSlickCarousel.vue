@@ -9,7 +9,7 @@ import $ from "jquery";
 import { onMounted, ref } from "vue";
 import "slick-carousel";
 import { carouselProps } from "./carousel.props";
-import { ListSlickEvents, SlickInstance, SlickBreakpoint, SlickDirection, ListSlickMethods } from './carousel'
+import { ListSlickEvents, SlickInstance, SlickBreakpoint, SlickDirection, ListSlickMethods } from './carousel.types'
 
 const props = defineProps(carouselProps);
 const emits = defineEmits<{

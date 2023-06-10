@@ -3,7 +3,7 @@
   "version": "0.7.6",
   "main": "./dist/vue-slick-ts.umd.js",
   "module": "./dist/vue-slick-ts.es.js",
-  "types": "./dist/types/index.d.ts",
+  "types": "./dist/index.d.ts",
   "unpkg": "./dist/vue-slick-ts.umd.js",
   "files": [
     "dist",
@@ -11,7 +11,7 @@
   ],
   "exports": {
     ".": {
-      "types": "./dist/types/index.d.ts",
+      "types": "./dist/index.d.ts",
       "require": "./dist/vue-slick-ts.umd.js",
       "import": "./dist/vue-slick-ts.es.js",
       "default": "./dist/vue-slick-ts.es.js"

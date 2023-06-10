@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import $ from "jquery";
 import { onMounted } from "vue";
-import "slick-carousel/slick/slick.min.js";
+import "slick-carousel";
 import { carouselProps } from "./carousel.props";
 
 enum ListSlickEvents {
@@ -107,25 +107,25 @@ type SlickDirection = "left" | "right" | "up" | "down" | "vertical";
 interface SlickEvents {
     (
         event: ListSlickEvents.SLICK_EVENTS_INIT,
-        cb: (event: JQuery.Event, slickInstance: SlickInstance) => SlickInstance
-    ): void;
+        cb: (event: JQuery.Event, slickInstance: SlickInstance) => void
+    ): SlickInstance;
     (
         event: ListSlickEvents.SLICK_EVENTS_REINIT,
-        cb: (event: JQuery.Event, slickInstance: SlickInstance) => SlickInstance
-    ): void;
+        cb: (event: JQuery.Event, slickInstance: SlickInstance) => void
+    ): SlickInstance;
     (
         event: ListSlickEvents.SLICK_EVENTS_DESTROY,
-        cb: (event: JQuery.Event, slickInstance: SlickInstance) => SlickInstance
-    ): void;
+        cb: (event: JQuery.Event, slickInstance: SlickInstance) => void
+    ): SlickInstance;
     (
         event: ListSlickEvents.SLICK_EVENTS_SET_POSITION,
-        cb: (event: JQuery.Event, slickInstance: SlickInstance) => SlickInstance
-    ): void;
+        cb: (event: JQuery.Event, slickInstance: SlickInstance) => void
+    ): SlickInstance;
 
     (
         event: ListSlickEvents.SLICK_EVENTS_AFTER_CHANGE,
-        cb: (event: JQuery.Event, slickInstance: SlickInstance) => SlickInstance
-    ): void;
+        cb: (event: JQuery.Event, slickInstance: SlickInstance) => void
+    ): SlickInstance;
     (
         event: ListSlickEvents.SLICK_EVENTS_BEFORE_CHANGE,
         cb: (
@@ -133,8 +133,8 @@ interface SlickEvents {
             slickInstance: SlickInstance,
             currentSlide: number,
             nextSlide: number
-        ) => SlickInstance
-    ): void;
+        ) => void
+    ): SlickInstance;
 
     (
         event: ListSlickEvents.SLICK_EVENTS_BREAKPOINT,
@@ -142,25 +142,24 @@ interface SlickEvents {
             event: JQuery.Event,
             slickInstance: SlickInstance,
             breakpoint: SlickBreakpoint
-        ) => SlickInstance
-    ): void;
+        ) => void
+    ): SlickInstance;
     (
         event: ListSlickEvents.SLICK_EVENTS_EDGE,
         cb: (
             event: JQuery.Event,
             slickInstance: SlickInstance,
             direction: SlickDirection
-        ) => SlickInstance
-    ): void;
+        ) => void
+    ): SlickInstance;
     (
         event: ListSlickEvents.SLICK_EVENTS_SWIPE,
         cb: (
             event: JQuery.Event,
             slickInstance: SlickInstance,
             direction: SlickDirection
-        ) => SlickInstance
-    ): void;
-
+        ) => void
+    ): SlickInstance;
     (
         event: ListSlickEvents.SLICK_EVENTS_LAZY_LOADED,
         cb: (
@@ -168,9 +167,8 @@ interface SlickEvents {
             slickInstance: SlickInstance,
             image: JQuery<HTMLImageElement>,
             imageSource: string
-        ) => SlickInstance
-    ): void;
-
+        ) => void
+    ): SlickInstance;
     (
         event: ListSlickEvents.SLICK_EVENTS_LAZY_LOAD_ERROR,
         cb: (
@@ -178,8 +176,8 @@ interface SlickEvents {
             slickInstance: SlickInstance,
             image: JQuery<HTMLImageElement>,
             imageSource: string
-        ) => SlickInstance
-    ): void;
+        ) => void
+    ): SlickInstance;
 }
 
 interface SlickInstanceInitials {
@@ -458,14 +456,81 @@ interface SlickInstance {
 }
 
 const props = defineProps(carouselProps);
-const emits = defineEmits<SlickEvents>();
+const emits = defineEmits<{
+    (
+        emit: ListSlickEvents.SLICK_EVENTS_INIT,
+        event: JQuery.Event, slickInstance: SlickInstance
+    ): void;
+    (
+        emit: ListSlickEvents.SLICK_EVENTS_REINIT,
+        event: JQuery.Event, slickInstance: SlickInstance
+    ): void;
+    (
+        emit: ListSlickEvents.SLICK_EVENTS_DESTROY,
+        event: JQuery.Event, slickInstance: SlickInstance
+    ): void;
+    (
+        emit: ListSlickEvents.SLICK_EVENTS_SET_POSITION,
+        event: JQuery.Event, slickInstance: SlickInstance
+    ): void;
+
+    (
+        emit: ListSlickEvents.SLICK_EVENTS_AFTER_CHANGE,
+        event: JQuery.Event, slickInstance: SlickInstance
+    ): void;
+    (
+        emit: ListSlickEvents.SLICK_EVENTS_BEFORE_CHANGE,
+        event: JQuery.Event,
+        slickInstance: SlickInstance,
+        currentSlide: number,
+        nextSlide: number
+    ): void;
+
+    (
+        emit: ListSlickEvents.SLICK_EVENTS_BREAKPOINT,
+        event: JQuery.Event,
+        slickInstance: SlickInstance,
+        breakpoint: SlickBreakpoint
+    ): void;
+    (
+        emit: ListSlickEvents.SLICK_EVENTS_EDGE,
+        event: JQuery.Event,
+        slickInstance: SlickInstance,
+        direction: SlickDirection
+    ): void;
+    (
+        emit: ListSlickEvents.SLICK_EVENTS_SWIPE,
+        event: JQuery.Event,
+        slickInstance: SlickInstance,
+        direction: SlickDirection
+    ): void;
+
+    (
+        emit: ListSlickEvents.SLICK_EVENTS_LAZY_LOADED,
+        event: JQuery.Event,
+        slickInstance: SlickInstance,
+        image: JQuery<HTMLImageElement>,
+        imageSource: string
+    ): void;
+
+    (
+        emit: ListSlickEvents.SLICK_EVENTS_LAZY_LOAD_ERROR,
+        event: JQuery.Event,
+        slickInstance: SlickInstance,
+        image: JQuery<HTMLImageElement>,
+        imageSource: string
+    ): void;
+}>();
 
 onMounted(() => {
-    const $slick = $(`.vue-slick__carousel`).slick(props)
-    Object.keys(ListSlickEvents).forEach((key) => {
-        $slick.on(ListSlickEvents[key], (...args) => {
-            emits(ListSlickEvents[key], args)
+    const $slick: SlickInstance = $(`.vue-slick__carousel`).slick(props)
+
+    for (const key in ListSlickEvents) {
+        const event = ListSlickEvents[key]
+
+        $slick.on(event, (...args) => {
+            emits(event, ...args)
         })
-    })
+    }
 });
 </script>

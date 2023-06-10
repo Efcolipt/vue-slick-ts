@@ -1,6 +1,6 @@
 {
   "name": "vue-slick-ts",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "./dist/vue-slick-ts.umd.js",
   "module": "./dist/vue-slick-ts.es.js",
   "types": "./dist/types/index.d.ts",

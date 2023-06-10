@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.1.0](https://github.com/Efcolipt/vue-slick-ts/compare/1.0.0...1.1.0) (2023-06-10)
+
+
+### Features
+
+* update peer deps ([c967535](https://github.com/Efcolipt/vue-slick-ts/commit/c96753511fcd20a33cbd6a68abff3d3ef5ccdb9e))
+
 # [1.0.0](https://github.com/Efcolipt/vue-slick-ts/compare/0.8.4...1.0.0) (2023-06-10)
 
 ## [0.8.4](https://github.com/Efcolipt/vue-slick-ts/compare/0.8.3...0.8.4) (2023-06-10)

@@ -38,3 +38,35 @@ npm install vue-slick-ts
 # or
 yarn add vue-slick-ts
 ```
+
+## Example Usage
+
+```vue
+<script setup lang="ts">
+import {ref,onMounted } from 'vue'
+import { ListSlickMethods, VueSlickCarousel } from 'vue-slick-ts'
+import type { SlickInstance } from 'vue-slick-ts'
+import 'vue-slick-ts/dist/css/slick.css'
+
+const carousel = ref<SlickInstance | null>(null)
+
+const handleInit = (e: JQuery.Event, instance: SlickInstance)  => {
+  console.log(e, instance);
+}
+
+onMounted(() => {
+  carousel.value!(ListSlickMethods.SLICK_METHODS_PLAY)
+})
+</script>
+
+<template>
+  <VueSlickCarousel ref="carousel" @init="handleInit">
+    <div>
+      Test 1
+    </div>
+    <div>
+      Test 2
+    </div>
+  </VueSlickCarousel>
+</template>
+```

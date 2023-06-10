@@ -640,9 +640,13 @@
   });
 
   onMounted(() => {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
     $slick.value = $(`.vue-slick__carousel`).slick(props);
 
     for (const key in ListSlickEvents) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       const event = ListSlickEvents[key];
 
       ($slick.value as SlickInstance).on(event, (...args) => {

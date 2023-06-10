@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.2](https://github.com/Efcolipt/vue-slick-ts/compare/0.8.1...0.8.2) (2023-06-10)
+
+
+### Bug Fixes
+
+* enums export ([9891173](https://github.com/Efcolipt/vue-slick-ts/commit/9891173ba3b9e250dedb3e997a4e6d80c9fd4767))
+
 ## [0.8.1](https://github.com/Efcolipt/vue-slick-ts/compare/0.8.0...0.8.1) (2023-06-10)
 
 

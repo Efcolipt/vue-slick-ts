@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.3](https://github.com/Efcolipt/vue-slick-ts/compare/0.7.2...0.7.3) (2023-06-10)
+
+
+### Bug Fixes
+
+* fix dist packages ([6f5b61e](https://github.com/Efcolipt/vue-slick-ts/commit/6f5b61e93487a4ba49fcb88827232d7e46f83d6a))
+
 ## [0.7.2](https://github.com/Efcolipt/vue-slick-ts/compare/0.7.1...0.7.2) (2023-06-10)
 
 

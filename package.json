@@ -13,16 +13,11 @@
     ".": {
       "types": "./dist/types/index.d.ts",
       "require": "./dist/vue-slick-ts.umd.js",
+      "import": "./dist/vue-slick-ts.es.js",
       "default": "./dist/vue-slick-ts.es.js"
     },
-    "./dist/css/style.css": {
-      "import": "./dist/css/style.css",
-      "require": "./dist/css/style.css"
-    },
-    "./dist/css/style-theme.css": {
-      "import": "./dist/css/style-theme.css",
-      "require": "./dist/css/style-theme.css"
-    },
+    "./dist/css/style.css": "./dist/css/style.css",
+    "./dist/css/style-theme.css": "./dist/css/style-theme.css",
     "./package.json": "./package.json"
   },
   "engines": {

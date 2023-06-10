@@ -6,9 +6,12 @@ export function install(app: App) {
   app.component("VueSlickCarousel", VueSlickCarousel);
 }
 
-export type {
+export {
   ListSlickEvents,
   ListSlickMethods,
+} from './carousel.types'
+
+export type {
   SlickBreakpoint,
   SlickDirection,
   SlickEvents,

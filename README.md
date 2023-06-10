@@ -60,7 +60,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <VueSlickCarousel ref="carousel" @init="handleInit">
+  <VueSlickCarousel ref="carousel" @init="handleInit" :autoplay-speed="4000">
     <div>
       Test 1
     </div>

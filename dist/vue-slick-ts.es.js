@@ -4765,9 +4765,9 @@ const ir = /* @__PURE__ */ Fn({
   setup(K, { expose: z, emit: C }) {
     const x = K, i = Bn(null);
     return z({
-      slickSlickCurrentSlide() {
+      slickCurrentSlide() {
         return i.value(
-          "slickSlickCurrentSlide"
+          "slickCurrentSlide"
           /* SLICK_METHODS_CURRENT_SLIDE */
         );
       },
@@ -4801,11 +4801,8 @@ const ir = /* @__PURE__ */ Fn({
           /* SLICK_METHODS_GET_SLICK */
         );
       },
-      unslick() {
-        i.value(
-          "unslick"
-          /* SLICK_METHODS_UNSLICK */
-        );
+      unslick(o) {
+        i.value("unslick", o);
       },
       slickGoTo(o, d) {
         i.value(

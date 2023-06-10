@@ -17,7 +17,7 @@ declare enum ListSlickEvents {
     SLICK_EVENTS_LAZY_LOAD_ERROR = "lazyLoadError"
 }
 declare enum ListSlickMethods {
-    SLICK_METHODS_CURRENT_SLIDE = "slickSlickCurrentSlide",
+    SLICK_METHODS_CURRENT_SLIDE = "slickCurrentSlide",
     SLICK_METHODS_GO_TO = "slickGoTo",
     SLICK_METHODS_NEXT = "slickNext",
     SLICK_METHODS_PREV = "slickPrev",
@@ -45,7 +45,7 @@ interface SlickMethods {
     (method: ListSlickMethods.SLICK_METHODS_PAUSE): void;
     (method: ListSlickMethods.SLICK_METHODS_PLAY): void;
     (method: ListSlickMethods.SLICK_METHODS_GET_SLICK): SlickInstance;
-    (method: ListSlickMethods.SLICK_METHODS_UNSLICK): void;
+    (method: ListSlickMethods.SLICK_METHODS_UNSLICK, fromBreakpoint: number): void;
     (method: ListSlickMethods.SLICK_METHODS_GO_TO, slideNumber: number, dotAnimate: boolean): void;
     (method: ListSlickMethods.SLICK_METHODS_ADD, html: JQuery.Selector, index: number | boolean, addBefore: boolean): void;
     (method: ListSlickMethods.SLICK_METHODS_REMOVE, index: number | boolean, removeBefore: boolean, removeAll: boolean): void;
@@ -399,20 +399,21 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         readonly default: false;
     };
     readonly pauseOnDotsHover: {
-        readonly type: import("vue").PropType<boolean>; /**
+        readonly type: import("vue").PropType<boolean>;
+        readonly default: false; /**
          * The current direction (`0` for left and down, `1` for right and up).
          * Default: 0
          */
-        readonly default: false;
     };
     readonly respondTo: {
-        readonly type: import("vue").PropType<string>; /**
-         * The index of the current slide.
-         * Default: 0
-         */
+        readonly type: import("vue").PropType<string>;
         readonly default: "window";
         readonly validator: (val: string) => boolean;
     };
+    /**
+     * The direction (`0` for left and down, `1` for right and up).
+     * Default: null
+     */
     readonly responsive: {
         readonly type: import("vue").PropType<object>;
         readonly default: null;
@@ -434,18 +435,24 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         readonly default: 1;
     };
     readonly slidesToScroll: {
-        readonly type: import("vue").PropType<number>; /**
+        readonly type: import("vue").PropType<number>;
+        readonly default: 1; /**
          * jQuery instance that contains the "slide track".
          * Default: null
          */
-        readonly default: 1;
-    };
+    }; /**
+     * jQuery instance that contains the "slide track".
+     * Default: null
+     */
     readonly speed: {
         readonly type: import("vue").PropType<number>;
         readonly default: 300;
     };
     readonly swipe: {
-        readonly type: import("vue").PropType<boolean>;
+        readonly type: import("vue").PropType<boolean>; /**
+         * When the slider is sliding.
+         * Default: false
+         */
         readonly default: true;
     };
     readonly swipeToSlide: {
@@ -468,6 +475,9 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         readonly type: import("vue").PropType<boolean>;
         readonly default: true;
     };
+    /**
+     * Default: false
+     */
     readonly variableWidth: {
         readonly type: import("vue").PropType<boolean>;
         readonly default: false;
@@ -483,29 +493,26 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
     readonly rtl: {
         readonly type: import("vue").PropType<boolean>;
         readonly default: false;
-    }; /**
-     * Default: false
-     */
+    };
     readonly waitForAnimate: {
         readonly type: import("vue").PropType<boolean>;
         readonly default: true;
     };
     readonly zIndex: {
         readonly type: import("vue").PropType<number>;
-        /**
-         * Default: null
-         */
         readonly default: 1000;
-    };
+    }; /**
+     * Default: null
+     */
 }, {
-    slickSlickCurrentSlide(): number;
+    slickCurrentSlide(): number;
     slickNext(): void;
     slickPrev(): void;
     slickPause(): void;
     slickPlay(): void;
     getSlick(): SlickInstance;
-    unslick(): void;
-    slickGoTo(slideNumber: number, dotAnimate: boolean): void;
+    unslick(fromBreakpoint: number): void;
+    slickGoTo(slideNumber: number, dontAnimate: boolean): void;
     slickAdd(html: string, index: number | boolean, addBefore: boolean): void;
     slickRemove(index: number | boolean, removeBefore: boolean, removeAll: boolean): void;
     slickFilter(filter: string): void;
@@ -628,20 +635,21 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         readonly default: false;
     };
     readonly pauseOnDotsHover: {
-        readonly type: import("vue").PropType<boolean>; /**
+        readonly type: import("vue").PropType<boolean>;
+        readonly default: false; /**
          * The current direction (`0` for left and down, `1` for right and up).
          * Default: 0
          */
-        readonly default: false;
     };
     readonly respondTo: {
-        readonly type: import("vue").PropType<string>; /**
-         * The index of the current slide.
-         * Default: 0
-         */
+        readonly type: import("vue").PropType<string>;
         readonly default: "window";
         readonly validator: (val: string) => boolean;
     };
+    /**
+     * The direction (`0` for left and down, `1` for right and up).
+     * Default: null
+     */
     readonly responsive: {
         readonly type: import("vue").PropType<object>;
         readonly default: null;
@@ -663,18 +671,24 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         readonly default: 1;
     };
     readonly slidesToScroll: {
-        readonly type: import("vue").PropType<number>; /**
+        readonly type: import("vue").PropType<number>;
+        readonly default: 1; /**
          * jQuery instance that contains the "slide track".
          * Default: null
          */
-        readonly default: 1;
-    };
+    }; /**
+     * jQuery instance that contains the "slide track".
+     * Default: null
+     */
     readonly speed: {
         readonly type: import("vue").PropType<number>;
         readonly default: 300;
     };
     readonly swipe: {
-        readonly type: import("vue").PropType<boolean>;
+        readonly type: import("vue").PropType<boolean>; /**
+         * When the slider is sliding.
+         * Default: false
+         */
         readonly default: true;
     };
     readonly swipeToSlide: {
@@ -697,6 +711,9 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         readonly type: import("vue").PropType<boolean>;
         readonly default: true;
     };
+    /**
+     * Default: false
+     */
     readonly variableWidth: {
         readonly type: import("vue").PropType<boolean>;
         readonly default: false;
@@ -712,20 +729,17 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
     readonly rtl: {
         readonly type: import("vue").PropType<boolean>;
         readonly default: false;
-    }; /**
-     * Default: false
-     */
+    };
     readonly waitForAnimate: {
         readonly type: import("vue").PropType<boolean>;
         readonly default: true;
     };
     readonly zIndex: {
         readonly type: import("vue").PropType<number>;
-        /**
-         * Default: null
-         */
         readonly default: 1000;
-    };
+    }; /**
+     * Default: null
+     */
 }>> & {
     onInit?: ((event: JQuery.Event, slickInstance: SlickInstance) => any) | undefined;
     onReInit?: ((event: JQuery.Event, slickInstance: SlickInstance) => any) | undefined;

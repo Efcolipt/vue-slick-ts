@@ -25,7 +25,7 @@
   }
 
   enum ListSlickMethods {
-    SLICK_METHODS_CURRENT_SLIDE = "slickSlickCurrentSlide",
+    SLICK_METHODS_CURRENT_SLIDE = "slickCurrentSlide",
     SLICK_METHODS_GO_TO = "slickGoTo",
     SLICK_METHODS_NEXT = "slickNext",
     SLICK_METHODS_PREV = "slickPrev",
@@ -57,7 +57,7 @@
     (method: ListSlickMethods.SLICK_METHODS_PAUSE): void;
     (method: ListSlickMethods.SLICK_METHODS_PLAY): void;
     (method: ListSlickMethods.SLICK_METHODS_GET_SLICK): SlickInstance;
-    (method: ListSlickMethods.SLICK_METHODS_UNSLICK): void;
+    (method: ListSlickMethods.SLICK_METHODS_UNSLICK, fromBreakpoint: number): void;
     (
       method: ListSlickMethods.SLICK_METHODS_GO_TO,
       slideNumber: number,
@@ -563,18 +563,18 @@
       );
     },
 
-    [ListSlickMethods.SLICK_METHODS_UNSLICK]() {
-      ($slick.value as SlickInstance)(ListSlickMethods.SLICK_METHODS_UNSLICK);
+    [ListSlickMethods.SLICK_METHODS_UNSLICK](fromBreakpoint: number) {
+      ($slick.value as SlickInstance)(ListSlickMethods.SLICK_METHODS_UNSLICK, fromBreakpoint);
     },
 
     [ListSlickMethods.SLICK_METHODS_GO_TO](
       slideNumber: number,
-      dotAnimate: boolean
+      dontAnimate: boolean
     ) {
       ($slick.value as SlickInstance)(
         ListSlickMethods.SLICK_METHODS_GO_TO,
         slideNumber,
-        dotAnimate
+        dontAnimate
       );
     },
 
